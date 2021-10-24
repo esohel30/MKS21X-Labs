@@ -21,7 +21,12 @@ public static double distance(Point p1, Point p2){
   double y2 = p2.getY();
   return Math.sqrt(Math.pow(x1 -x2,2) + Math.pow(y2-y1,2));
 }
-
-
+public double distanceTo(Point p2){
+  double x2 = p2.getX();
+  double y2 = p2.getY();
+  double x1 = x;
+  double y1 = y;
+  return Math.sqrt(Math.pow(x1 -x2,2) + Math.pow(y2-y1,2));
+}
 
 }
