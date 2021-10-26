@@ -25,5 +25,13 @@ public class Demo {
         System.out.println(P2.distanceTo(P2));
         //  should return 0
 
+        System.out.println("testing triangle methods");
+        Triangle testTriangle1 = new Triangle(new Point(0, 0), new Point(3, 0), new Point(0, 4));
+
+        System.out.println(testTriangle1);
+        System.out.println(testTriangle1.getPerimeter());
+
+
+
     }
   }

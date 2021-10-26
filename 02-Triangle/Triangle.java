@@ -1,17 +1,17 @@
-public class Traingle {
-    private point v1, v2, v3;
+public class Triangle {
+    private Point v1, v2, v3;
 
-    public Triangle(point p1, point p2, point p3) {
+    public Triangle(Point p1, Point p2, Point p3) {
         v1 = p1;
         v2 = p2;
         v3 = p3;
     }
 
     public double getPerimeter() {
-        return Point.distance(v3, v1) + Point.distance(v2, v3) + Point.distance(v1, v2);
+        return Point.distance(v1, v2) + Point.distance(v1, v3) + Point.distance(v2, v3);
     }
 
-    public point getVertex(int val) {
+    public Point getVertex(int val) {
         if (val == 1) {
             return v1;
         }
@@ -21,9 +21,10 @@ public class Traingle {
         if (val == 3) {
             return v3;
         }
+        return v1;
     }
     public void setVertex(int val, Point constant) {
-        if (val = 1) {
+        if (val == 1) {
             v1 = constant;
         }
         if (val == 2) {
@@ -37,6 +38,6 @@ public class Traingle {
     public String toString() {
         return "[" +
             v1 + "," + v2 + "," + v3 +
-            "]"
+            "]";
     }
 }
