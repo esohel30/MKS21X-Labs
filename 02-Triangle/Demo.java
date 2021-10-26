@@ -18,15 +18,14 @@ public class Demo{
     System.out.println(distance(P1,P2)); //call1
     System.out.println(Point.distance(P1,P2)); //call 2
     System.out.println(P1.distanceTo(P2)); //call 3
-
+// test cases
     System.out.println(distance(P1,P4));
 //  should return 10201.00
     System.out.println(Point.distance(P3,P4));
 //  should return 10198.001
     System.out.println(P2.distanceTo(P2));
 //  should return 0
-    //This one is IMPLIED strongly. You cannot tell by the calling style alone,
-    //but you can make an educated guess.
+
   }
 
  }

@@ -29,5 +29,8 @@ public double distanceTo(Point p2){
   double y1 = y;
   return Math.sqrt(Math.pow(x1 -x2,2) + Math.pow(y2-y1,2));
 }
+public String toString(){
+  return "[" x + "," + y + "]";
+}
 
 }
