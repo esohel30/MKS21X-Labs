@@ -16,15 +16,26 @@ public class Traingle{
       return v1;
     }
     if (val ==2){
-      return v1;
+      return v2;
     }
-    if(val ==3){ 
-      return v1;
+    if(val ==3){
+      return v3;
+    }
+  }
+  public void setVertex(int val, Point constant){
+   if (val =1){
+    v1 =constant;
+    }
+   if (val ==2){
+    v2 = constant;
+   }
+   if (val ==3){
+    v2 = constant;
+  }
+}
 
-
- {
-
-    }}
-
-
+public String toString(){
+  return "[" +
+  v1 + "," +  v2 + "," +v3
+  +"]"}
 }
