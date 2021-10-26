@@ -27,11 +27,23 @@ public class Demo {
 
         System.out.println("testing triangle methods");
         Triangle testTriangle1 = new Triangle(new Point(0, 0), new Point(3, 0), new Point(0, 4));
+// should return 12.0 3/4/5 pythagorean triplet
 
         System.out.println(testTriangle1);
         System.out.println(testTriangle1.getPerimeter());
+        Triangle testTriangle2 = new Triangle(new Point(1, 1), new Point(6, 1), new Point(1, 13));
+// Should return 30 5/12/13 pythagorean triplet
+        System.out.println(testTriangle2);
+        System.out.println(testTriangle2.getPerimeter());
 
+        Triangle testTriangle3 = new Triangle(new Point(2312, 22), new Point(123123, 223), new Point(2323, 222));
+// Should return 241811.469  verified by online triangle perimeter calculator app
+        System.out.println(testTriangle3);
+        System.out.println(testTriangle3.getPerimeter());
 
-
+        testTriangle3.setVertex(1, new Point(1, 1));
+        System.out.println(testTriangle3);
+        System.out.println(testTriangle3.getPerimeter());
+// should return 2456254.69 verfied by same online calculator website
     }
   }
