@@ -13,6 +13,8 @@ public class Demo {
         Point P2 = new Point(2, 2);
         Point P3 = new Point(4, 4);
         Point P4 = new Point(-2, 10202);
+        Point P5 = new Point(-2.001, 4.002);
+        Point P6 = new Point(-2, 4);
 
         System.out.println(distance(P1, P2)); //call1
         System.out.println(Point.distance(P1, P2)); //call 2
@@ -45,7 +47,17 @@ public class Demo {
         System.out.println(testTriangle3);
         System.out.println(testTriangle3.getPerimeter());
 // should return 2456254.69 verfied by same online calculator website
-        System.out.println(testTriangle1.equals(testTriangle2));
+
+        System.out.println(P1.equals(P6));
+        //should return false
+        System.out.println(P2.equals(P2));
+        //should return true
+        System.out.println(P3.equals(P3));
+        //should return true
+        System.out.println(P6.equals(P5));
+        //should return true
+
+
 
 
 

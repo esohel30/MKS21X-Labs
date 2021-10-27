@@ -33,14 +33,19 @@ public class Point {
         x + "," + y + "}";
     }
 
-    public static boolean closeEnough(double x, double y){
-      return ((x-y)/x < 0.001);
+    public static boolean closeEnough(double input1, double input2){
+      if (input1 == 0 || input2 == 0){
+        if ((input1 == 0 && input2 != 0) || (input2 == 0 && input2 != 0)){
+          return false;
         }
+        else{
+          return true;
+        }
+      }
+      return (Math.abs((input1 - input2)/input2) < 0.001);
+    }
 
     public boolean equals(Point test){
-      if ((test.getX()==0.0 && test.getY() != 0.0) || (test.getX()!=0.0 && test.getY() == 0.0)){
-        return false;
-      }
-    return closeEnough(test.getX(), test.getY());
-    }    // current error = prints curly braces when printing points???????
+      return (closeEnough(x, test.getX()) && closeEnough(y, test.getY()));
+    }
   }
