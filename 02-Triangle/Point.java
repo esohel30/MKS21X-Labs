@@ -30,22 +30,21 @@ public class Point {
     }
     public String toString() {
         return "{" +
-        x + "," + y + "}";
+            x + "," + y + "}";
     }
 
-    public static boolean closeEnough(double input1, double input2){
-      if (input1 == 0 || input2 == 0){
-        if ((input1 == 0 && input2 != 0) || (input2 == 0 && input2 != 0)){
-          return false;
+    public static boolean closeEnough(double input1, double input2) {
+        if (input1 == 0 || input2 == 0) {
+            if ((input1 == 0 && input2 != 0) || (input2 == 0 && input2 != 0)) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        else{
-          return true;
-        }
-      }
-      return (Math.abs((input1 - input2)/input2) < 0.001);
+        return (Math.abs((input1 - input2) / input2) < 0.001);
     }
 
-    public boolean equals(Point test){
-      return (closeEnough(x, test.getX()) && closeEnough(y, test.getY()));
+    public boolean equals(Point test) {
+        return (closeEnough(x, test.getX()) && closeEnough(y, test.getY()));
     }
-  }
+}
