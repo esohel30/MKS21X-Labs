@@ -37,7 +37,8 @@ public class Point {
         if (input1 == 0 || input2 == 0) {
             if ((input1 == 0 && input2 != 0) || (input2 == 0 && input2 != 0)) {
                 return false;
-            } else {
+            }
+             else {
                 return true;
             }
         }

@@ -16,6 +16,7 @@ public class Demo {
         Point P5 = new Point(-2.001, 4.002);
         Point P6 = new Point(-2, 4);
 
+        System.out.println("\n"  + "testing distance methods");
         System.out.println(distance(P1, P2)); //call1
         System.out.println(Point.distance(P1, P2)); //call 2
         System.out.println(P1.distanceTo(P2)); //call 3
@@ -27,29 +28,27 @@ public class Demo {
         System.out.println(P2.distanceTo(P2));
         //  should return 0
 
-        System.out.println("testing triangle methods");
+        System.out.println("\n"  + "testing perimeter methods");
         Triangle testTriangle1 = new Triangle(new Point(0, 0), new Point(3, 0), new Point(0, 4));
-        // should return 12.0 3/4/5 pythagorean triplet
-
+        Triangle testTriangle2 = new Triangle(new Point(1, 1), new Point(6, 1), new Point(1, 13));
+        Triangle testTriangle3 = new Triangle(new Point(2312, 22), new Point(123123, 223), new Point(2323, 222));
+        Triangle testTriangle4 = new Triangle(new Point(3, 0), new Point(0, 3),new Point(3,3));
+        Triangle testTriangle5 = new Triangle(new Point(0, 0), new Point(6, 0), new Point(3, 5.19615));
+        Triangle closeTraingle = new Triangle(new Point(3.0002, 0), new Point(0, 3.003),new Point(3,3.00022));
         System.out.println(testTriangle1);
         System.out.println(testTriangle1.getPerimeter());
-        Triangle testTriangle2 = new Triangle(new Point(1, 1), new Point(6, 1), new Point(1, 13));
         // Should return 30 5/12/13 pythagorean triplet
         System.out.println(testTriangle2);
         System.out.println(testTriangle2.getPerimeter());
-
-        Triangle testTriangle3 = new Triangle(new Point(2312, 22), new Point(123123, 223), new Point(2323, 222));
-        // Should return 241811.469  verified by online triangle perimeter calculator app
-        Triangle testTriangle4 = new Triangle(new Point(3, 0), new Point(0, 3),new Point(3,3));
-
         System.out.println(testTriangle3);
         System.out.println(testTriangle3.getPerimeter());
-
         testTriangle3.setVertex(1, new Point(1, 1));
         System.out.println(testTriangle3);
         System.out.println(testTriangle3.getPerimeter());
         // should return 2456254.69 verfied by same online calculator website
 
+        System.out.println("\n" + "testing triangle equal method");
+        // testing equal method
         System.out.println(P1.equals(P6));
         //should return false
         System.out.println(P2.equals(P2));
@@ -58,10 +57,13 @@ public class Demo {
         //should return true
         System.out.println(P6.equals(P5));
         //should return true
-
-        System.out.println("Testing traingle methods");
         System.out.println(testTriangle1.equals(testTriangle2));
-// test of new functions
+        System.out.println(testTriangle1.equals(testTriangle1));
+        System.out.println(testTriangle4.equals(closeTraingle));
+        // this one is crucial; it should return true
+
+        System.out.println("\n" + "test of area and classify ");
+        // test of new functions
         System.out.println(testTriangle1.area());
         //should return 6.0  3,4,5 triplet
         System.out.println(testTriangle2.area());
@@ -72,6 +74,10 @@ public class Demo {
         // should return scalene
         System.out.println(testTriangle4.classify());
         // should return isosceles
-          }
+        System.out.println(testTriangle5.classify());
+        // should return equilateral
+        System.out.println(testTriangle5.area());
+        // should return 15.58ish
+        }
 
 }
