@@ -45,6 +45,12 @@ public class Point {
     }
 
     public boolean equals(Point test) {
+        if(test == null){
+          return false;
+        }
         return (closeEnough(x, test.getX()) && closeEnough(y, test.getY()));
     }
+
+
+
 }

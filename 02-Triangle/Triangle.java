@@ -6,6 +6,11 @@ public class Triangle {
         v2 = p2;
         v3 = p3;
     }
+    public Triangle(double a, double b, double c, double d, double e, double f){
+        v1 = new Point(a,b);
+        v2 = new Point(c,d);
+        v3 = new Point(e,f);
+      }
 
     public double getPerimeter() {
         return Point.distance(v1, v2) + Point.distance(v1, v3) + Point.distance(v2, v3);
@@ -46,6 +51,9 @@ public class Triangle {
         // 0.001%
     }
     public boolean equals(Triangle tester) {
+        if(tester == null){
+        return false;
+      }
         return (v1.equals(tester.getVertex(1)) &&
             v2.equals(tester.getVertex(2)) &&
             v3.equals(tester.getVertex(3)));

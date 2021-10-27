@@ -57,7 +57,11 @@ public class Demo {
         System.out.println(P6.equals(P5));
         //should return true
 
-        System.out.println(testTriangle1.equals(testTriangle1)); 
-    }
+        System.out.println("Testing traingle methods");
+        System.out.println(testTriangle1.equals(testTriangle2));
+// test of new functions
+        System.out.println(testTriangle1.area());
+        System.out.println()
+          }
 
 }
