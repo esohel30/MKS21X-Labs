@@ -40,6 +40,8 @@ public class Demo {
 
         Triangle testTriangle3 = new Triangle(new Point(2312, 22), new Point(123123, 223), new Point(2323, 222));
         // Should return 241811.469  verified by online triangle perimeter calculator app
+        Triangle testTriangle4 = new Triangle(new Point(3, 0), new Point(0, 3),new Point(3,3));
+
         System.out.println(testTriangle3);
         System.out.println(testTriangle3.getPerimeter());
 
@@ -61,7 +63,15 @@ public class Demo {
         System.out.println(testTriangle1.equals(testTriangle2));
 // test of new functions
         System.out.println(testTriangle1.area());
-        System.out.println()
+        //should return 6.0  3,4,5 triplet
+        System.out.println(testTriangle2.area());
+        // should return 30.0 5,12,13 triplet
+        System.out.println(testTriangle3.area());
+        // should return 1.3347239ish verified online
+        System.out.println(testTriangle1.classify());
+        // should return scalene
+        System.out.println(testTriangle4.classify());
+        // should return isosceles
           }
 
 }
