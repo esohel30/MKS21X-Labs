@@ -50,5 +50,5 @@ public class Triangle {
         return false;
       }
     return closeEnough(test.getX(), test.getY());
-    }    // current error = print
+    }   
 }

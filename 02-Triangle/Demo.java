@@ -45,5 +45,10 @@ public class Demo {
         System.out.println(testTriangle3);
         System.out.println(testTriangle3.getPerimeter());
 // should return 2456254.69 verfied by same online calculator website
+        System.out.println(testTriangle1.equals(testTriangle2));
+
+
+
     }
+
   }
