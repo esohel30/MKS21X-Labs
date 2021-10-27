@@ -79,11 +79,8 @@ public class Triangle {
 
     public double area() {
         double halfPer = getPerimeter() * 0.5;
-        double side0 = Point.distance(v1, v2); // put every side in a variable to Not repeat
-        double side1 = Point.distance(v2, v3);
-        double side2 = Point.distance(v3, v1);
         return Math.sqrt(
-        halfPer * (halfPer - side0) * (halfPer - side1) * (halfPer - side2)
+        halfPer * (halfPer - Point.distance(v1, v2)) * (halfPer - Point.distance(v2, v3)) * (halfPer - Point.distance(v3, v1))
         );
     }
 }
