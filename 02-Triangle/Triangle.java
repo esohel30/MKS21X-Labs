@@ -41,5 +41,41 @@ public class Triangle {
             "}";
     }
 
+    public static boolean closeEnough(double inp1, double inp2){
+        return (Math.abs((inp1 - inp2)/inp2;) < 0.00001);
+        // 0.001%
+      }
+      public boolean equals(Triangle tester){
+        return (v1.equals(tester.getVertex(1))
+         && v2.equals(tester.getVertex(2))
+         && v3.equals(tester.getVertex(3)));
+      }
+
+      public String classify(){
+        double side0 = Point.distance(v1, v2);
+        double side1 = Point.distance(v2, v3);
+        double side2 = Point.distance(v3, v1);
+        // save all sides of traingles to sides
+        if(closeEnough(side0, side1) && closeEnough(side1, side2)){
+          // if all equal
+          return "equilateral";
+        }
+        // if 2 equal
+        else if(closeEnough(side0, side1) || closeEnough(side1, side2) || closeEnough(side0, side2)){
+          return "isosceles";
+          // if none equal
+        }
+         else{
+          return "scalene";
+        }
+      }
+
+      public double area(){
+        double halfPer = getPerimeter()*0.5;
+        double side0 = Point.distance(v1, v2); // put every side in a variable to Not repeat
+        double side1 = Point.distance(v2, v3);
+        double side2 = Point.distance(v3, v1);
+        return Math.sqrt(halfPer*(halfPer-side0)*(halfPer-side1)*(halfPer-side2));
+      }
 
 }
