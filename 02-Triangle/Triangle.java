@@ -31,13 +31,13 @@ public class Triangle {
             v2 = constant;
         }
         if (val == 3) {
-            v2 = constant;
+            v3 = constant;
         }
     }
 
     public String toString() {
-        return "[" +
+        return "{" +
             v1 + "," + v2 + "," + v3 +
-            "]";
+            "}";
     }
 }
