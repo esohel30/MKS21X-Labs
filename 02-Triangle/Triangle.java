@@ -40,4 +40,15 @@ public class Triangle {
             v1 + "," + v2 + "," + v3 +
             "}";
     }
+
+    public static boolean closeEnough(double x, double y){
+      return ((x-y)/x < 0.001);
+        }
+
+    public boolean equals(Triangle test){
+      if ((test.getX()==0.0 && test.getY() != 0.0) || (test.getX()!=0.0 && test.getY() == 0.0)){
+        return false;
+      }
+    return closeEnough(test.getX(), test.getY());
+    }    // current error = print
 }
