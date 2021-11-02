@@ -11,7 +11,7 @@ public class RationalNumber extends RealNumber
     super(0.0);//this value is ignored!
     if(deno == 0){
       numerator = 0;
-      denominator =1
+      denominator =1;
     }
     numerator = nume;
     denominator = deno;
@@ -48,16 +48,18 @@ public class RationalNumber extends RealNumber
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
-  public boolean equals(RationalNumber other){
-    return false;
-  }
+  public boolean equals(RationalNumber secval){
+    secval.reduce();
+    reduce();
+    return (secval.getNumerator() == this.numerator && secval.getDenominator() == this.denominator);
+    }
 
 
   /**
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
-    return numerator + "/ " + denominator;
+    return numerator + "/" + denominator;
   }
 
   /**Calculate the GCD of two integers.
@@ -80,7 +82,7 @@ public class RationalNumber extends RealNumber
     val2 = a;
     val1 = b;
     }
-    if(b = a){
+    if(b == a){
       return a;
     }
 
@@ -89,8 +91,7 @@ public class RationalNumber extends RealNumber
       val1 = val2;
       val2 = current;
     }
-      return = val1
-
+      return val1;
   }
 
   /**
@@ -99,33 +100,32 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int largefactor = gcd(numerator, denominator);
+    numerator = numerator / largefactor;
+    denominator = denominator / largefactor;
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
-  public RationalNumber multiply(RationalNumber other){
-    return null;
+  public RationalNumber multiply(RationalNumber secval){
+    RationalNumber fillin = new RationalNumber(this.numerator * secval.getNumerator() , secval.getDenominator() * this.denominator);
+    fillin.reduce();
+    return fillin;
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
-  public RationalNumber divide(RationalNumber other){
-    return null;
+  public RationalNumber divide(RationalNumber secval){
+    RationalNumber fillin = new RationalNumber(this.denominator * secval.getNumerator(), secval.getDenominator() * this.numerator);
+    fillin.reduce();
+    return fillin;
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
-  public RationalNumber add(RationalNumber other){
-    return null;
-  }
-  /**
-  *Return a new RationalNumber that this minus the other
-  */
-  public RationalNumber subtract(RationalNumber other){
-    return null;
+
   }
 }
