@@ -126,6 +126,17 @@ public class RationalNumber extends RealNumber
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
-
+  public RationalNumber add(RationalNumber secval){
+    RationalNumber fillin = new RationalNumber(secval.getNumerator() * this.denominator + this.numerator * secval.getDenominator(), secval.getDenominator() * this.denominator);
+    fillin.reduce();
+    return fillin;
+  }
+  /**
+  *Return a new RationalNumber that this minus the other
+  */
+  public RationalNumber subtract(RationalNumber secval){  //cross multiplication but not really then subtract
+    RationalNumber fillin = new RationalNumber(this.denominator * secval.getNumerator()- this.numerator * secval.getDenominator(), this.denominator * secval.getDenominator());
+    fillin.reduce();
+    return fillin;
   }
 }
