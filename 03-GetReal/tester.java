@@ -1,8 +1,8 @@
 public class tester{
   public static void main(String[] args) {
-    RealNumber testCase1 = new RealNumber(23057325);
-    RealNumber testCase2 = new RealNumber(123123);
-    RealNumber testCase3 = new RealNumber(-2.12);
+    RealNumber testCase1 = new RealNumber(235);
+    RealNumber testCase2 = new RealNumber(12);
+    RealNumber testCase3 = new RealNumber(-1.22);
     RationalNumber testCase4 = new RationalNumber(2,3);
     RationalNumber testCase5 = new RationalNumber(2, 4);
     RationalNumber testCase6 = new RationalNumber(1, 2);
@@ -18,7 +18,6 @@ public class tester{
     System.out.println();
 
     System.out.println("Add, sub, mul, div, getnume, getdemo w rational nums ");
-    System.out.println(testCase4.equals(testCase5));
     System.out.println(testCase4.add(testCase5));
     System.out.println(testCase4.subtract(testCase5));
     System.out.println(testCase4.multiply(testCase5));
@@ -48,16 +47,17 @@ public class tester{
     System.out.println();
 
     System.out.println("random tests");
-		for (int i = 0; i < 7; i++) {
-      RealNumber rando1 = new RealNumber( (int) ((Math.random() * (15 - 3 + 1)) + 3) );
-      RealNumber rando2 = new RealNumber( (int) ((Math.random() * (10 - 3 + 1)) + 3) );
+		for (int i = 0; i < 20; i = i + 1) {
 
-      System.out.println("rando1");
-      System.out.println(rando1.getValue());
-      System.out.println("rando2");
-      System.out.println(rando2.getValue());
-      System.out.println("mulitply");
-      System.out.println(rando1.mulitply(rando2));
+      RealNumber rando1 = new RealNumber( (int) (
+      (Math.random() * (15 - 3 + 1)) + 3)
+      );
+      RealNumber rando2 = new RealNumber( (int)
+      ((Math.random() * (10 - 3 + 1)) + 3)
+      );
+
+      System.out.println("rando1: " + rando1.getValue());
+      System.out.println("rando2: " + rando2.getValue());
       System.out.println("divide");
       System.out.println(rando1.divide(rando2));
       System.out.println("add");
