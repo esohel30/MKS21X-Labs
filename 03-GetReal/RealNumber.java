@@ -35,7 +35,12 @@ public class RealNumber{
   public double subtract(RealNumber other){
     return this.value - other.getValue();
   }
-
+  public int compareTo(RealNumber other){
+      if (getValue() - other.getValue() >= 1) return 1;
+      if (getValue() - other.getValue()> 0 && getValue() - other.getValue()< 1) return 1;
+      if (getValue() - other.getValue() == 0) return 0;
+      return -1;
+    }
 
   public double getValue(){
     return value;

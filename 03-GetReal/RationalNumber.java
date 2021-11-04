@@ -9,12 +9,13 @@ public class RationalNumber extends RealNumber
   */
   public RationalNumber(int numerator, int denominator){
     super(0.0);//this value is ignored!
+    this.numerator = numerator;
+    this.denominator = denominator;
+
     if(denominator == 0) {
       this.numerator = 0;
       this.denominator = 1;
     }
-    this.numerator = numerator;
-    this.denominator = denominator;
   }
 
   public double getValue(){
@@ -38,8 +39,8 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    RationalNumber holder = new RationalNumber(denominator, numerator);
-    return holder;
+    return new RationalNumber(denominator, numerator);
+
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
@@ -62,30 +63,24 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    /*use euclids method or a better one*/
-    //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    int val1 =0;
-    int val2 =0;
-    int current =1;  // any number thats not 0
-
-    if(a>b){
-    val1 = a;
-    val2 = b;
-    }
-    if(b<a){
-    val2 = a;
-    val1 = b;
-    }
-    if(b == a){
-      return a;
+    int val1 = a;
+    int val2 =b;
+    int holder =1000; // any number that is not 0. 
+    if (val2 > val1) {
+      val2 = a;
+      val1 = b;
     }
 
-    while(current != 0){
-      current = val1%val2;
-      val1 = val2;
-      val2 = current;
-    }
-      return val1;
+    while (val2 != 0){
+     holder = val1%val2;
+     val1 = val2;
+     val2 = holder;
+   }
+
+   return val1;
+
+
+
   }
 
   /**
