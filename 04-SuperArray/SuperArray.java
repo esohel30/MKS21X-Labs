@@ -1,17 +1,15 @@
 public class SuperArray {
 // instance variables
   private String[] data;
-  private int size;
+  private int size =0;
 
   // no input
   public SuperArray() {
     this.data = new String[10]; //ten is the default capacity
-    this.size = 0;
   }
   // one input
   public SuperArray(int pickcap) {
     this.data = new String[pickcap]; // allows user to pick capacity
-    this.size = 0;
   }
 
   public int size() {
@@ -45,20 +43,47 @@ public class SuperArray {
     }
 
   public void resize() {
-    String[] duplicate = new String[size*2 +1];
+    String[] duplicate = new String[size*2 +1]; //times 2 + 1 advised by Mr.Konstantinovich
     for(int w =0; w < size; w++) {
-      duplicate[w] += data[w];
+      duplicate[w] = data[w];
     }
     data = duplicate;
   }
 
-  public String get(int ind) {
-    if(ind < size && ind >=0) {
-      return data[ind];
+  public void resize2() {  //diff from other because what if the user just wants to resize even if
+    if(size >= data.length) { // there is space
+      resize(data);
+    }
+  }
+
+  public String get(int index) {
+    if(index < size && index >=0) {
+      return data[index];
     }
     System.out.println("Out of bounds error: check if it is less than 0 or it is greater than size");
     return null;
+    // these are temporary
   }
+
+  public String set(int index, String element) {
+    if(index >= 0 && index < size){
+      String duplicate = data[index];
+      data[index] = element;
+      return duplicate;
+    }
+    System.out.println("Out of bounds error: check if it is less than 0 or it is greater than size");
+    return null;
+    // these are temporary
+    }
+
+  public boolean add(String input){
+    resize2(data);
+    data[size] = input;
+    size += 1;
+    return true; // confusion ??
+  }
+
+
 
 
   }
