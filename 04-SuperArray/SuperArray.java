@@ -1,5 +1,4 @@
 public class SuperArray {
-// instance variables
   private String[] data;
   private int size =0;
 
@@ -13,13 +12,13 @@ public class SuperArray {
   }
 
   public int size() {
-    return size;
+    return size; //provides more functionality to user
   }
 
   public String toString() {
     String temp = "[";
-    for(int j =0; j < size -1; j++){
-      if(j < size -2) {
+    for(int j =0; j < size; j++){
+      if(j < size -1) {
       temp += data[j] + ", ";
       }
       else  {
@@ -32,7 +31,7 @@ public class SuperArray {
   public String toStringDebug() {
     String temp = "[";
     for(int j =0; j < data.length; j++){
-      if(j < data.length -2) {
+      if(j < data.length -1) {
       temp += data[j] + ", ";
       }
       else  {
@@ -42,17 +41,18 @@ public class SuperArray {
     return temp + "]";
     }
 
-  public void resize() {
-    String[] duplicate = new String[size*2 +1]; //times 2 + 1 advised by Mr.Konstantinovich
-    for(int w =0; w < size; w++) {
+  public void resize() { // there will be two if resize methods
+    // one will be incase the user wants to; the other if it is needed.
+    String[] duplicate = new String[data.length* 2 +1]; // (* 2) + 1 advised by Mr.Konstantinovich
+    for(int w =0; w < data.length; w++) {
       duplicate[w] = data[w];
     }
     data = duplicate;
   }
 
-  public void resize2() {  //diff from other because what if the user just wants to resize even if
-    if(size >= data.length) { // there is space
-      resize(data);
+  public void resize2()  {
+    if(data.length >= size){
+      resize();
     }
   }
 
@@ -77,11 +77,13 @@ public class SuperArray {
     }
 
   public boolean add(String input){
-    resize2(data);
+    resize2();
     data[size] = input;
     size += 1;
     return true; // confusion ??
   }
+
+
 
 
 
