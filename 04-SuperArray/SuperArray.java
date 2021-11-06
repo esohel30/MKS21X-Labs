@@ -3,7 +3,6 @@ public class SuperArray {
   private String[] data;
   private int size;
 
-// constructors
   // no input
   public SuperArray() {
     this.data = new String[10]; //ten is the default capacity
@@ -20,13 +19,22 @@ public class SuperArray {
   }
 
   public String toString() {
-    String joe = "[";
-   for (int i = 0; i < size; i++){
-     joe += data[i];
-     if (i <= size - 2) joe += ", ";
-   }
-   return joe + "]";
+    String temp = "[";
+    for(int j =0; j < size -1; j++){
+      if(j < size -2) {
+      temp += data[j] + ", ";
+      }
+      else  {
+        temp+= data[j];
+      }
+    }
+    return temp + "]";
   }
+
+  
+
+
+
 
 
 
