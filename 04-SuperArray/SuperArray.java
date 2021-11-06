@@ -41,11 +41,11 @@ public class SuperArray {
     return temp + "]";
     }
 
-  public void resize() { // there will be two if resize methods
+  public void resize() { // there will be two resize methods
     // one will be incase the user wants to; the other if it is needed.
-    String[] duplicate = new String[data.length* 2 +1]; // (* 2) + 1 advised by Mr.Konstantinovich
-    for(int w =0; w < data.length; w++) {
-      duplicate[w] = data[w];
+    String[] duplicate = new String[(size* 2) + 1]; // (* 2) + 1 advised by Mr.Konstantinovich
+    for(int idx =0; idx < size; idx++) {
+      duplicate[idx] = data[idx];
     }
     data = duplicate;
   }
