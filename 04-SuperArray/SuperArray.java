@@ -54,20 +54,11 @@ public class SuperArray {
 
   public String get(int ind) {
     if(ind < size && ind >=0) {
-      return data[index];
+      return data[ind];
     }
-    else {
-      System.out.println("Out of bounds error: check if it is less than 0 or it is greater than size")
-    }
+    System.out.println("Out of bounds error: check if it is less than 0 or it is greater than size");
+    return null;
   }
-
-
-
-
-  }
-
-
-
 
 
   }
