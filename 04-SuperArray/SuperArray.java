@@ -31,10 +31,34 @@ public class SuperArray {
     return temp + "]";
   }
 
-  
+  public String toStringDebug() {
+    String temp = "[";
+    for(int j =0; j < data.length; j++){
+      if(j < data.length -2) {
+      temp += data[j] + ", ";
+      }
+      else  {
+        temp+= data[j];
+      }
+    }
+    return temp + "]";
+    }
 
 
 
+  public boolean add(String newadd) {
+    data[size] = newadd;
+    size ++;
+    return true;
+    }
+
+  public resize() {
+    String[] duplicate = new String[size*2 +1]
+    for(int w =0; w < size; w++) {
+      duplicate[w] += data[w];
+    }
+    data = dupicate;
+  }
 
 
 
