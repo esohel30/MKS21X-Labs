@@ -44,22 +44,27 @@ public class SuperArray {
     return temp + "]";
     }
 
-
-
-  public boolean add(String newadd) {
-    data[size] = newadd;
-    size ++;
-    return true;
-    }
-
-  public resize() {
-    String[] duplicate = new String[size*2 +1]
+  public void resize() {
+    String[] duplicate = new String[size*2 +1];
     for(int w =0; w < size; w++) {
       duplicate[w] += data[w];
     }
-    data = dupicate;
+    data = duplicate;
   }
 
+  public String get(int ind) {
+    if(ind < size && ind >=0) {
+      return data[index];
+    }
+    else {
+      System.out.println("Out of bounds error: check if it is less than 0 or it is greater than size")
+    }
+  }
+
+
+
+
+  }
 
 
 
