@@ -72,6 +72,9 @@ public class tester{
   System.out.println(clist);
   clist.remove(2);
   System.out.println(clist);
+  clist.remove("NOPE!");
+  System.out.println(clist);
+  
 
 }
 }

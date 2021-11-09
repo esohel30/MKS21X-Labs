@@ -126,8 +126,18 @@ public class SuperArray {
       dupe[i] = data[ i +1];
     }
     data = dupe;
-    return null; 
+    return null;
     }
+
+  public boolean remove(String target) {
+    int instanceOne = indexOf(target);
+    if(instanceOne == -1){
+      return false;
+    } else {
+        remove(instanceOne);
+        return true;
+      }
+  }
 
 
 
