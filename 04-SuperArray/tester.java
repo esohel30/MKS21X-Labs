@@ -70,5 +70,8 @@ public class tester{
   System.out.println(clist.lastIndexOf("phi"));
   clist.add(2, "wassup Mr.K, my man");
   System.out.println(clist);
+  clist.remove(2);
+  System.out.println(clist);
+
 }
 }

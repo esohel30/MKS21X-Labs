@@ -111,8 +111,24 @@ public class SuperArray {
       data[i] = value;
       value = temp;
     }
-
   }
+
+  String remove(int index) {
+    if(index < 0 || index > size){
+      System.out.println("out of bounds error: check if index is less than 0 or greater than size");
+    }
+    String[] dupe = new String[data.length];
+    String l = data[index];
+    for(int i = 0; i < index; i++) {
+      dupe[i] = data[i];
+    }
+    for(int i = index ; i < data.length-1; i++){
+      dupe[i] = data[ i +1];
+    }
+    data = dupe;
+    return null; 
+    }
+
 
 
 }
