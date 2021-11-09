@@ -65,10 +65,10 @@ public class tester{
 
 
 
-System.out.println("stupid test ");
-System.out.println(clist.indexOf("gamma"));
-
-
-
+  System.out.println("stupid test ");
+  System.out.println(clist.indexOf("beta"));
+  System.out.println(clist.lastIndexOf("phi"));
+  clist.add(2, "wassup Mr.K, my man");
+  System.out.println(clist);
 }
 }

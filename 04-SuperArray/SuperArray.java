@@ -85,7 +85,7 @@ public class SuperArray {
 
   int indexOf(String target){
     for(int i = 0; i < size; i ++) {
-      if(target == data[i]){
+      if(target == data[i]) {
         return i;
       }
     }
@@ -99,8 +99,20 @@ public class SuperArray {
       }
     }
     return -1;
-
     }
 
+  void add(int index, String value) {
+    if(index < 0 || index > size) {
+      System.out.println("error: check if the code is outside bounds");
+    }
+    String temp = "";
+    for(int i = index; i < data.length; i++) {
+      temp = data[i];
+      data[i] = value;
+      value = temp;
+    }
 
   }
+
+
+}
