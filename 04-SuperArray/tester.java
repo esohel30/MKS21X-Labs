@@ -64,5 +64,11 @@ public class tester{
 
 
 
+
+System.out.println("stupid test ");
+System.out.println(clist.indexOf("gamma"));
+
+
+
 }
 }

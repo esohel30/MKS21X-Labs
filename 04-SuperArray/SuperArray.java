@@ -1,6 +1,6 @@
 public class SuperArray {
   private String[] data;
-  private int size =0;
+  private int size = 0;
 
   // no input
   public SuperArray() {
@@ -43,7 +43,7 @@ public class SuperArray {
 
   public void resize() { // there will be two resize methods
     // one will be incase the user wants to; the other if it is needed.
-    String[] duplicate = new String[(size* 2) + 1]; // (* 2) + 1 advised by Mr.Konstantinovich
+    String[] duplicate = new String[(size * 2) + 1]; // (* 2) + 1 advised by Mr.Konstantinovich
     for(int idx =0; idx < size; idx++) {
       duplicate[idx] = data[idx];
     }
@@ -83,9 +83,24 @@ public class SuperArray {
     return true; // confusion ??
   }
 
+  int indexOf(String target){
+    for(int i = 0; i < size; i ++) {
+      if(target == data[i]){
+        return i;
+      }
+    }
+    return -1;
+  }
 
+  int lastIndexOf(String target) {
+    for(int i = size; i >= 0; i--){
+      if(target == data[i]) {
+        return i;
+      }
+    }
+    return -1;
 
-
+    }
 
 
   }
