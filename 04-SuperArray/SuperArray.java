@@ -149,16 +149,17 @@ public class SuperArray {
 
     public void add(int index, String value) {
         adjust();
-        if (index > 0 && index < size) {
+        if ( index <= size && index >= 0) {
+              size ++;
               String temp = "";
               for (int i = index; i < data.length; i++) {
                   temp = data[i];
                   data[i] = value;
                   value = temp;
               }
-          }
-        } else {
+          } else {
           throw new IndexOutOfBoundsException("the index provided (" + index + ") is out of bounds");
-            }
+        }
+      }
     //-------------------------------------------------------------
 }
