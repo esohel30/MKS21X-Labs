@@ -63,8 +63,6 @@ public class tester{
 // works perfectly
 
 
-
-
   System.out.println("stupid test ");
   System.out.println(clist.indexOf("beta"));
   System.out.println(clist.lastIndexOf("phi"));
@@ -74,7 +72,7 @@ public class tester{
   System.out.println(clist);
   clist.remove("NOPE!");
   System.out.println(clist);
-  
+
 
 }
 }
