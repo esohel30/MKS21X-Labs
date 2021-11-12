@@ -15,14 +15,12 @@ public class SuperArray {
             throw new IllegalArgumentException("the capacity you provided (" + userpickcap + ") is not allowed");
         }
     }
-    //-------------------------------------------------------------
-
 
     public int size() {
         return size; //provides more functionality to user
     }
-    //-------------------------------------------------------------
 
+    //-------------------------------------------------------------
 
     public String toString() {
         String temp = "[";
@@ -47,8 +45,8 @@ public class SuperArray {
         }
         return temp + "]";
     }
-    //-------------------------------------------------------------
 
+    //-------------------------------------------------------------
 
     public void resize() { // there will be two resize methods
         // one will be incase the user wants to; the other if it is needed.
@@ -64,20 +62,20 @@ public class SuperArray {
             resize();
         }
     }
+
     //-------------------------------------------------------------
-
-
+    // gets the value at the index
     public String get(int index) {
-        if (index < size && index >= 0) {
+        if (index <= size && index >= 0) {
             return data[index];
         } else {
             throw new IndexOutOfBoundsException("The index provided (" + index + ") is out of bounds");
             // throwing exception = also returns something
         }
     }
-
+    //sets the value at a specefic index
     public String set(int index, String element) {
-        if (index > size && index >= 0) {
+        if (index <= size && index >= 0) {
             String duplicate = data[index];
             data[index] = element;
             return duplicate;
@@ -85,9 +83,10 @@ public class SuperArray {
             throw new IndexOutOfBoundsException("The index provided (" + index + ") is out of bounds");
         }
     }
+
     //-------------------------------------------------------------
 
-
+    // add a value to the end of an index
     public boolean add(String input) {
         adjust();
         data[size] = input;
@@ -96,6 +95,7 @@ public class SuperArray {
     }
     //-------------------------------------------------------------
 
+    // finds the first occurance of a value
     public int indexOf(String target) {
         for (int i = 0; i < size; i++) {
             if (target == data[i]) {
@@ -104,9 +104,7 @@ public class SuperArray {
         }
         return -1;
     }
-
-
-
+    // backward loop of indexof; finds last occurance
     public int lastIndexOf(String target) {
         for (int i = size; i >= 0; i--) {
             if (target == data[i]) {
@@ -115,10 +113,10 @@ public class SuperArray {
         }
         return -1;
     }
+
     //-------------------------------------------------------------
 
-
-
+    // removes specified index
     String remove(int index) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("the index provided (" + index + ") is out of bounds");
@@ -133,7 +131,7 @@ public class SuperArray {
         }
         data = dupe;
         size--;
-        return data[index];
+        return l;
     }
 
     public boolean remove(String target) {
@@ -145,21 +143,22 @@ public class SuperArray {
             return true;
         }
     }
+
     //-------------------------------------------------------------
 
+    // add value to specified index and automatically adjusts size
     public void add(int index, String value) {
         adjust();
-        if ( index <= size && index >= 0) {
-              size ++;
-              String temp = "";
-              for (int i = index; i < data.length; i++) {
-                  temp = data[i];
-                  data[i] = value;
-                  value = temp;
-              }
-          } else {
-          throw new IndexOutOfBoundsException("the index provided (" + index + ") is out of bounds");
+        if (index <= size && index >= 0) {
+            size++;
+            String temp = "";
+            for (int i = index; i < data.length; i++) {
+                temp = data[i];
+                data[i] = value;
+                value = temp;
+            }
+        } else {
+            throw new IndexOutOfBoundsException("the index provided (" + index + ") is out of bounds");
         }
-      }
-    //-------------------------------------------------------------
+    }
 }
