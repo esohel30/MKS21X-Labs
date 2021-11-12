@@ -66,7 +66,7 @@ public class SuperArray {
     //-------------------------------------------------------------
     // gets the value at the index
     public String get(int index) {
-        if (index <= size && index >= 0) {
+        if (index < size && index >= 0) {
             return data[index];
         } else {
             throw new IndexOutOfBoundsException("The index provided (" + index + ") is out of bounds");
@@ -75,7 +75,7 @@ public class SuperArray {
     }
     //sets the value at a specefic index
     public String set(int index, String element) {
-        if (index <= size && index >= 0) {
+        if (index < size && index >= 0) {
             String duplicate = data[index];
             data[index] = element;
             return duplicate;
