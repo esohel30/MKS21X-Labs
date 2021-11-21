@@ -40,8 +40,8 @@ public class UserInput {
     System.out.println("you entered: " + storage);
     System.out.println("mean: " + sum/count);
     System.out.println("min value: " + min);
-    System.out.println("max value: " + max); 
-
+    System.out.println("max value: " + max);
+    in.close();
 
 
   }
