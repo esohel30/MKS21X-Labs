@@ -90,7 +90,9 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
   System.out.println(worms);
   System.out.println(makeReversedList(worms));
   // runs quickly
-  // cant figure out how to test empty spaces with random 
+  // cant figure out how to test empty spaces with random
+  System.out.println(mixLists(worms, words));
+  //runs extremely fast 
 
 }
 }
