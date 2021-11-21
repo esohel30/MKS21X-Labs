@@ -64,6 +64,7 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
   public static void main(String[] args) {
     ArrayList<String>words = new ArrayList<String>();
     ArrayList<String>birds = new ArrayList<String>();
+    ArrayList<String>worms = new ArrayList<String>();
 
     words.add("I");
     words.add("love");
@@ -71,7 +72,7 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
     birds.add("really");
     birds.add("good");
     birds.add("lol");
-    birds.add("lol");
+    birds.add("my guys ");
 
 
 
@@ -79,8 +80,17 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
     System.out.println(replaceEmpty(words));
     System.out.println(words);
     System.out.println(makeReversedList(words));
-    System.out.println(mixLists(birds, words));
+    System.out.println(mixLists(words, birds));
 
-
+    System.out.println("random test cases ");
+    for (int i = 0; i < 100; i = i + 1) {
+     String rando1 = " " + (Math.random() * (15 - 3 + 1)) + 3;
+     worms.add(rando1);
   }
+  System.out.println(worms);
+  System.out.println(makeReversedList(worms));
+  // runs quickly
+  // cant figure out how to test empty spaces with random 
+
+}
 }
