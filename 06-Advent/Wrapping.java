@@ -22,7 +22,12 @@ public class Wrapping {
       int b2 = length * height;
       int b3 = width  * height;
 
-    
+      int min = b1;
+      if(b2 <= b3 && b2 <= b1){
+         min = b2;
+      }
+      if(b3 <= b2 && b3 <= b1){
+         min = b3;
       }
       count += (2 * b1 + 2 * b2 + 2 * b3 + min);
     }
