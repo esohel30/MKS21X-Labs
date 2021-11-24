@@ -21,8 +21,8 @@ public class Wrapping {
       int b1 = length * width;
       int b2 = length * height;
       int b3 = width  * height;
-
       int min = b1;
+      
       if(b2 <= b3 && b2 <= b1){
          min = b2;
       }
