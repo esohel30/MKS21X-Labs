@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Non {
-
 // method number one
     public static boolean hasVowels(String a) {
       String vowels = "aeiou";
@@ -42,11 +41,30 @@ public class Non {
     }
 
     public static void main(String[] args) {
-        String test = "aaeeiioouuxy";
-        System.out.println(hasVowels(test));
-        System.out.println(twice(test));
-        System.out.println(exceptions(test));
+      try {
+           if(args.length == 0){
+             System.out.println("insert a file name next time");
+             System.exit(1);
+           }
 
+           File file = new File(args[0]);
+           Scanner input = new Scanner(file);
+           int count = 0;
+
+           while(input.hasNextLine()){
+             String currentLine = input.nextLine();
+             if(hasVowels(currentLine) && twice(currentLine) && exceptions(currentLine)){
+              count ++;
+             }
+           }
+
+       System.out.println(count);
+     }
+
+       catch (FileNotFoundException ex) {
+           System.out.println("insert file name properly");
+       }
 
     }
+
 }
