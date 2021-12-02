@@ -16,5 +16,10 @@ public static void main(String[] args) {
   System.out.println(Arrays.toString(d));
   System.out.println(Arrays.toString(e));
   System.out.println(Arrays.toString(f));
+
+
+  bubbleSort(a);
+  System.out.println(Arrays.toString(a));
+
 }
 }
