@@ -1,7 +1,5 @@
 import java.util.Arrays;
-
-public class Sorts{
-
+  public class Sorts{
   /**Bubble sort of an int array.
   *Upon completion, the elements of the array will be in increasing order.
   *@param data  the elements to be sorted.
@@ -13,7 +11,6 @@ public class Sorts{
       if(data[i] < data[i+1] && i != len -1){
         i++;
       }
-
       if(data[i] > data[i+1]){
         int current = data[i];
         data[i] = data[i+1];
@@ -23,6 +20,22 @@ public class Sorts{
     }
   }
 
+  public static boolean compares(int[] a, int[] b) {
+    int lenA = a.length;
+    int lenB = b.length;
+
+    if(lenA != lenB){
+      return false;
+    }
+
+    for(int i =0; i < lenA; i++){
+      if(a[i] != b[i]){
+        return false;
+      }
+    }
+    return true;
+    }
+
   public static void main(String[] args) {
     int[] a = {1,2,3,4,5,6};
     int[] b = {5,1,12,-5,16};
@@ -31,30 +44,32 @@ public class Sorts{
     int[] e = {1,2,3,4,12,123,-1};
     int[] f = {-1,-2,-3,-4};
 
+    int[] a1 = {1,2,3,4,5,6};
+    int[] b1 = {5,1,12,-5,16};
+    int[] c1 = {1,-1,21,23,21,2};
+    int[] d1 = {12,-2,32,21,2123};
+    int[] e1 = {1,2,3,4,12,123,-1};
+    int[] f1 = {-1,-2,-3,-4};
 
-    System.out.println(Arrays.toString(a));
-    System.out.println(Arrays.toString(b));
-    System.out.println(Arrays.toString(c));
-    System.out.println(Arrays.toString(d));
-    System.out.println(Arrays.toString(e));
-    System.out.println(Arrays.toString(f));
     bubbleSort(a);
     bubbleSort(b);
     bubbleSort(c);
     bubbleSort(d);
     bubbleSort(e);
     bubbleSort(f);
-    System.out.println(Arrays.toString(a));
-    System.out.println(Arrays.toString(b));
-    System.out.println(Arrays.toString(c));
-    System.out.println(Arrays.toString(d));
-    System.out.println(Arrays.toString(e));
-    System.out.println(Arrays.toString(f));
 
+    Arrays.sort(a1);
+    Arrays.sort(b1);
+    Arrays.sort(c1);
+    Arrays.sort(d1);
+    Arrays.sort(e1);
+    Arrays.sort(f1);
 
-
-
-
+    System.out.println(compares(a,a1));
+    System.out.println(compares(b,b1));
+    System.out.println(compares(c,c1));
+    System.out.println(compares(d,d1));
+    System.out.println(compares(e,e1));
   }
 
 
