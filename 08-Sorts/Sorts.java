@@ -21,6 +21,17 @@ import java.util.Random;
     }
   }
 
+  public static void selectionSort(int[] ary) {
+    int len = ary.length 
+
+
+
+
+
+  }
+
+
+
   public static boolean compares(int[] a, int[] b) {
     int lenA = a.length;
     int lenB = b.length;
@@ -100,6 +111,7 @@ import java.util.Random;
         nums[br] = temp;
         bums[br] = temp;
       }
+
       Arrays.sort(nums);
       bubbleSort(bums);
       System.out.println("");
