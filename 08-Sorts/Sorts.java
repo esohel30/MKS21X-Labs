@@ -6,6 +6,7 @@ import java.util.Random;
   *@param data  the elements to be sorted.
   */
 
+  // sort number one
   public static void bubbleSort(int[] data){
     int len = data.length -1;
     for(int i =0; i < len; i++){
@@ -20,22 +21,29 @@ import java.util.Random;
         }
     }
   }
-
+  // sort number two 
   public static void selectionSort(int[] ary) {
-    int len = ary.length 
-
-
-
-
-
-  }
-
+    int start = 0;
+    int temp  = 0;
+    int min =0;
+    for(int i =0; i < ary.length; i++){
+      for(int j =start; j < ary.length; j++){
+        min = ary[start];
+        if(ary[j] < min){
+          min = ary[j];
+          temp = ary[start];
+          ary[start] = min;
+          ary[j] = temp;
+        }
+      }
+      start ++;
+    }
+    }
 
 
   public static boolean compares(int[] a, int[] b) {
     int lenA = a.length;
     int lenB = b.length;
-
     if(lenA != lenB){
       return false;
     }
@@ -49,6 +57,8 @@ import java.util.Random;
     }
 
   public static void main(String[] args) {
+
+
     int[] a = {1,2,3,4,5,6};
     int[] b = {5,1,12,-5,16};
     int[] c = {1,-1,21,23,21,2};
@@ -69,26 +79,26 @@ import java.util.Random;
     int[] h1 = {};
     int[] i1 = {1,1,1,1,1,1,1,1,1};
 
-    bubbleSort(a);
-    bubbleSort(b);
-    bubbleSort(c);
-    bubbleSort(d);
-    bubbleSort(e);
-    bubbleSort(f);
-    bubbleSort(g);
-    bubbleSort(h);
-    bubbleSort(i);
 
-    Arrays.sort(a1);
-    Arrays.sort(b1);
-    Arrays.sort(c1);
-    Arrays.sort(d1);
-    Arrays.sort(e1);
-    Arrays.sort(f1);
-    Arrays.sort(g1);
-    Arrays.sort(h1);
-    Arrays.sort(i1);
+      Arrays.sort(a1);
+      Arrays.sort(b1);
+      Arrays.sort(c1);
+      Arrays.sort(d1);
+      Arrays.sort(e1);
+      Arrays.sort(f1);
+      Arrays.sort(g1);
+      Arrays.sort(h1);
+      Arrays.sort(i1);
 
+      selectionSort(a);
+      selectionSort(b);
+      selectionSort(c);
+      selectionSort(d);
+      selectionSort(e);
+      selectionSort(f);
+      selectionSort(g);
+      selectionSort(h);
+      selectionSort(i);
 
     System.out.println(compares(a,a1));
     System.out.println(compares(b,b1));
@@ -99,27 +109,6 @@ import java.util.Random;
     System.out.println(compares(g,g1));
     System.out.println(compares(h,h1));
     System.out.println(compares(i,i1));
-
-    int z = 0;
-    System.out.println("here are the random test cases");
-    while(z < 15){
-      Random nft = new Random();
-      int[] nums = new int[300];
-      int[] bums = new int[300];
-      for(int br =0; br < nums.length; br++){
-        int temp = nft.nextInt();
-        nums[br] = temp;
-        bums[br] = temp;
-      }
-
-      Arrays.sort(nums);
-      bubbleSort(bums);
-      System.out.println("");
-      System.out.println(compares(nums,bums));
-      System.out.println(Arrays.equals(nums, bums));
-      z++;
-  }
-
   }
 
 }
