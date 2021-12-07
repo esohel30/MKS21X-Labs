@@ -45,9 +45,9 @@ public class Sorts {
     // sort number three
     public static void insertionSort(int[] data) {
         int len = data.length;
-        for (int i = 1; i < len; i++) {
-            int index = i - 1;
-            int current = data[i];
+        for (int b = 1; b < len; b++) {
+            int index = b - 1;
+            int current = data[b];
             while ((index >= 0) && (data[index] > current)) {
                 data[index + 1] = data[index];
                 index--;
@@ -73,58 +73,7 @@ public class Sorts {
     }
 
   public static void main(String[] args) {
-
-
-    int[] a = {1,2,3,4,5,6};
-    int[] b = {5,1,12,-5,16};
-    int[] c = {1,-1,21,23,21,2};
-    int[] d = {12,-2,32,21,2123};
-    int[] e = {1,2,3,4,12,123,-1};
-    int[] f = {-1,-2,-3,-4};
-    int[] g = {0};
-    int[] h = {};
-    int[] i = {1,1,1,1,1,1,1,1,1};
-
-    int[] a1 = {1,2,3,4,5,6};
-    int[] b1 = {5,1,12,-5,16};
-    int[] c1 = {1,-1,21,23,21,2};
-    int[] d1 = {12,-2,32,21,2123};
-    int[] e1 = {1,2,3,4,12,123,-1};
-    int[] f1 = {-1,-2,-3,-4};
-    int[] g1 = {0};
-    int[] h1 = {};
-    int[] i1 = {1,1,1,1,1,1,1,1,1};
-
-
-      Arrays.sort(a1);
-      Arrays.sort(b1);
-      Arrays.sort(c1);
-      Arrays.sort(d1);
-      Arrays.sort(e1);
-      Arrays.sort(f1);
-      Arrays.sort(g1);
-      Arrays.sort(h1);
-      Arrays.sort(i1);
-
-      insertionSort(a);
-      insertionSort(b);
-      insertionSort(c);
-      insertionSort(d);
-      insertionSort(e);
-      insertionSort(f);
-      insertionSort(g);
-      insertionSort(h);
-      insertionSort(i);
-
-    System.out.println(compares(a,a1));
-    System.out.println(compares(b,b1));
-    System.out.println(compares(c,c1));
-    System.out.println(compares(d,d1));
-    System.out.println(compares(e,e1));
-    System.out.println(compares(f,f1));
-    System.out.println(compares(g,g1));
-    System.out.println(compares(h,h1));
-    System.out.println(compares(i,i1));
+  
   }
 
 }
