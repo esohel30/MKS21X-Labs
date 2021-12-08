@@ -43,7 +43,6 @@ public class Sorts {
                if (data[j] < minimum){
                  start = j;
                  minimum = data[j];
-                 System.out.println(Arrays.toString(data));
                }
                j++;
              }
