@@ -16,7 +16,6 @@ public class WordSearch{
         }
       }
     }
-
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear(){
       for(int i=0; i < data.length; i++){
@@ -40,8 +39,6 @@ public class WordSearch{
       }
       return temp;
     }
-
-
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
      *have a corresponding letter to match any letters that it overlaps.
@@ -54,17 +51,15 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
-      if(data.length < col + word.length()){
-        return false;
-      }else{
-        for(int i =col; i < word.length(); i++){
-        for(int j=0; j < word.length(); j++){
-          data[row][i] = word.charAt(j);
+        if(data.length < col + word.length()){
+          return false;
+        }else{
+          for(int i =col; i < word.length() + col; i++){
+            data[row][i] = word.charAt(i - col);
+          }
         }
-      }
+      return true;
     }
-        return true;
-      }
 
 
    /**Attempts to add a given word to the specified position of the WordGrid.
@@ -91,7 +86,7 @@ public class WordSearch{
 
     public static void main(String[] args) {
       WordSearch x = new WordSearch(10,10);
-      x.addWordHorizontal("ipsem", 2, 2);
+      x.addWordHorizontal("bigBIrdy", 4, 2);
       System.out.println(x);
     }
 }
