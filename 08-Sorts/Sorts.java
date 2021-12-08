@@ -13,11 +13,11 @@ public class Sorts {
             for (int c = 1; c < size - b; c++) {
 
                 // if there is a value that is greater behind
-                if (data[c - 1] > data[c]) {
+                if(data[c - 1] > data[c]) {
 
                     placeHolder = data[c - 1]; //store prev value temporarily
-                    data[c - 1] = data[c]; //swap
-                    data[c] = placeHolder; //swap
+                    data[c - 1] = data[c]; //classic triple swap
+                    data[c] = placeHolder; //classic triple swap
                 }
 
             }
@@ -40,13 +40,14 @@ public class Sorts {
                     ary[j] = temp;
                 }
             }
-            
+
             start++; // increement the start value
         }
     }
 
     // sort number three
     public static void insertionSort(int[] data) {
+        // temp vals
         int index = 0;
         int current = 0;
         int size = data.length;
@@ -58,8 +59,9 @@ public class Sorts {
             // problem: index goes out of bound when approaches zero
             // needs 2 conditions
 
-            while ((index >= 0) && (data[index] > current)) {
+            while ((index >= 0) && (data[index] > current))  {
                 data[index + 1] = data[index];
+                // decrement index
                 index--;
             }
             // swaps
@@ -97,7 +99,7 @@ public class Sorts {
             }
 
             Arrays.sort(nums);
-            selectionSort(bums);
+            insertionSort(bums);
             System.out.println("");
             System.out.println(compares(nums, bums));
             System.out.println(Arrays.equals(nums, bums));
