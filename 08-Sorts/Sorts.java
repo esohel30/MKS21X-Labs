@@ -3,6 +3,7 @@ import java.util.Random;
 
 public class Sorts {
 
+
     // sort number one
     public static void bubbleSort(int[] data) {
         int placeHolder = 0;
@@ -25,34 +26,32 @@ public class Sorts {
     }
 
     // sort number two
-    /*Selection sort
-*/
-      public static void selectionSort(int[] data) {
-          int minimum;
-          int placeHolder;
-          int start;
-          int size = data.length;
+    public static void selectionSort(int[] data) {
+        int minimum;
+        int placeHolder;
+        int start;
+        int size = data.length;
 
-           for (int c = 0; c < size; c++){
-             start = c;
-             minimum = data[c];
+         for (int c = 0; c < size; c++){
+           start = c;
+           minimum = data[c];
 
-             // other loop to see where to and check if number less
-             int j = c;
-             while(j < size){
-               if (data[j] < minimum){
-                 start = j;
-                 minimum = data[j];
-               }
-               j++;
+           // other loop to see where to and check if number less
+           int j = c;
+           while(j < size){
+             if (data[j] < minimum){
+               start = j;
+               minimum = data[j];
              }
-
-             //hold value and swap others
-             placeHolder = data[c];
-             data[c] = minimum;
-             data[start] = placeHolder;
+             j++;
            }
-          }
+
+           //hold value and swap others
+           placeHolder = data[c];
+           data[c] = minimum;
+           data[start] = placeHolder;
+         }
+        }
 
 
     // sort number three
@@ -96,11 +95,13 @@ public class Sorts {
 
 
     public static void main(String[] args) {
-      int[] a = {1,2,3,4,5,6};
-      int[] b = {5,1,12,-5,16,2,12,14};
+      int[] a  =  {1,2,3,4,5,6};
+      int[] b  =  {5,1,12,-5,16,2,12,14,342,234,434,0,0,0,0,0,0,0,2434,213,244,34234,234,234,234,23,42,34,4,12,0,0,0,-1,-1,-1,-1,-1};
+      int[] b1 =  {5,1,12,-5,16,2,12,14,342,234,434,0,0,0,0,0,0,0,2434,213,244,34234,234,234,234,23,42,34,4,12,0,0,0,-1,-1,-1,-1,-1};
 
-      selectionSort(b);
+      Arrays.sort(b1);
+      insertionSort(b);
       System.out.println(Arrays.toString(b));
-
+      System.out.println(Arrays.toString(b1));
     }
 }
