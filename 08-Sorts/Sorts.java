@@ -25,25 +25,36 @@ public class Sorts {
     }
 
     // sort number two
-    public static void selectionSort(int[] ary) {
-        int start = 0;
-        int temp = 0;
-        int min = 0;
+    /*Selection sort
+*/
+      public static void selectionSort(int[] data) {
+          int minimum;
+          int placeHolder;
+          int start;
+          int size = data.length;
 
-        for (int i = 0; i < ary.length; i++) {
-            for (int j = start; j < ary.length; j++) {
-                min = ary[start];
-                if (ary[j] < min) {
-                    min = ary[j];
-                    temp = ary[start];
-                    ary[start] = min;
-                    ary[j] = temp;
-                }
-            }
+           for (int c = 0; c < size; c++){
+             start = c;
+             minimum = data[c];
 
-            start++; // increement the start value
-        }
-    }
+             // other loop to see where to and check if number less
+             int j = c;
+             while(j < size){
+               if (data[j] < minimum){
+                 start = j;
+                 minimum = data[j];
+                 System.out.println(Arrays.toString(data));
+               }
+               j++;
+             }
+
+             //hold value and swap others
+             placeHolder = data[c];
+             data[c] = minimum;
+             data[start] = placeHolder;
+           }
+          }
+
 
     // sort number three
     public static void insertionSort(int[] data) {
@@ -86,25 +97,11 @@ public class Sorts {
 
 
     public static void main(String[] args) {
-        int z = 0;
-        System.out.println("here are the random test cases");
-        while (z < 15) {
-            Random nft = new Random();
-            int[] nums = new int[300];
-            int[] bums = new int[300];
-            for (int br = 0; br < nums.length; br++) {
-                int temp = nft.nextInt();
-                nums[br] = temp;
-                bums[br] = temp;
-            }
+      int[] a = {1,2,3,4,5,6};
+      int[] b = {5,1,12,-5,16,2,12,14};
 
-            Arrays.sort(nums);
-            insertionSort(bums);
-            System.out.println("");
-            System.out.println(compares(nums, bums));
-            System.out.println(Arrays.equals(nums, bums));
-            z++;
-        }
+      selectionSort(b);
+      System.out.println(Arrays.toString(b));
 
     }
 }
