@@ -108,10 +108,11 @@ public class WordSearch {
      */
     public boolean addWordDiagonal(String word,int row, int col){
       int minLen = data.length;
+      int maxPos = row;
+
       if(minLen > data[0].length){
         minLen = data[0].length;
       }
-      int maxPos = row;
       if(maxPos < col){
         maxPos = col;
       }
