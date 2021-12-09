@@ -2,13 +2,11 @@
  */
 public class WordSearch {
     private char[][] data;
-
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param rows is the starting height of the WordSearch
      *@param cols is the starting width of the WordSearch
      */
-
     public WordSearch(int rows, int cols) {
         this.data = new char[rows][cols];
         for (int i = 0; i < data.length; i++) {
@@ -18,7 +16,6 @@ public class WordSearch {
         }
     }
     /**Set all values in the WordSearch to underscores'_'*/
-
     private void clear() {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
@@ -30,7 +27,6 @@ public class WordSearch {
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
-
     public String toString() {
         String temp = "";
         for (int i = 0; i < data.length; i++) {
@@ -79,7 +75,6 @@ public class WordSearch {
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-
     public boolean addWordVertical(String word, int row, int col) {
         if (data[0].length < row + word.length() || row > data.length || col > data.length) {
             return false;
@@ -106,44 +101,61 @@ public class WordSearch {
      *or there are overlapping letters that do not match, then false is returned
      *and the board is not modified.
      */
-    public boolean addWordDiagonal(String word,int row, int col){
-      int minLen = data.length;
-      int maxPos = row;
+    public boolean addWordDiagonal(String word, int row, int col) {
+        int minLen = data.length;
+        int maxPos = row;
 
-      if(minLen > data[0].length){
-        minLen = data[0].length;
-      }
-      if(maxPos < col){
-        maxPos = col;
-      }
-
-      if(minLen < word.length() + maxPos){
-        return false;
-      }else {
-        for(int j=0; j < word.length(); j++){
-          if(data[row +j][col+j] != '_' && data[row+j][col +j] != word.charAt(j)){
+        if (minLen > data[0].length) {
+            minLen = data[0].length;
+        }
+        if (maxPos < col) {
+            maxPos = col;
+        }
+        if (minLen < word.length() + maxPos) {
             return false;
-          }
+        } else {
+            for (int j = 0; j < word.length(); j++) {
+                if (data[row + j][col + j] != '_' && data[row + j][col + j] != word.charAt(j)) {
+                    return false;
+                }
+            }
+            for (int i = 0; i < word.length(); i++) {
+                data[row + i][col + i] = word.charAt(i);
+            }
+            return true;
         }
-      for(int i=0; i < word.length(); i++){
-        data[row+ i][col+i] = word.charAt(i);
-        }
-        return true;
     }
-  }
+
+    public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
+      int rowCopy = row;
+      int colCopy = col;
+
+      for(int j=0; j < word.length(); j++) {
+        if(data[rowCopy][colCopy] != '_' && data[rowCopy][colCopy] != word.charAt(j)) {
+          return false;
+        }
+        rowCopy += rowInc;
+        colCopy += colInc;
+      }
+
+      for(int i =0; i < word.length(); i++) {
+        data[row][col] = word.charAt(i);
+        row += rowInc;
+        col += colInc;
+      }
+      return true;
+    }
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
-        WordSearch x = new WordSearch(10, 10);
-        x.addWordDiagonal("abcde",0,0);
-        x.addWordDiagonal("abcd",1,0);
-        x.addWordDiagonal("abc",2,0);
-        x.addWordDiagonal("ab",3,0);
-        x.addWordDiagonal("a",4,0);
-        x.addWordVertical("x",0,1);
-        x.addWordVertical("xx",0,2);
-        x.addWordVertical("xxx",0,3);
-        x.addWordVertical("xxxx",0,4);
+        WordSearch x = new WordSearch(5, 5);
+        x.addWord(4,4,"hello",-1,-1);
         System.out.println(x);
     }
 }
