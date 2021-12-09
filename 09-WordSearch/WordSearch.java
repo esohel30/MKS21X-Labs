@@ -54,14 +54,16 @@ public class WordSearch {
      */
 
     public boolean addWordHorizontal(String word, int row, int col) {
-        if (data.length < col + word.length()) {
+        if (data.length < col + word.length() || row > data.length || col > data.length) {
             return false;
         } else {
             for (int i = col; i < word.length() + col; i++) {
                 if (data[row][i] != '_' && data[row][i] != word.charAt(i - col)) {
                     return false;
                 }
-                data[row][i] = word.charAt(i - col);
+            }
+            for (int j = 0; j < word.length() + col; j++) {
+                data[row][j] = word.charAt(j - col);
             }
         }
         return true;
@@ -79,28 +81,34 @@ public class WordSearch {
      */
 
     public boolean addWordVertical(String word, int row, int col) {
-        if (data[0].length < row + word.length()) {
+        if (data[0].length < row + word.length() || row > data.length || col > data.length) {
             return false;
         } else {
             for (int i = row; i < word.length() + row; i++) {
                 if (data[i][col] != '_' && data[i][col] != word.charAt(i - row)) {
                     return false;
                 }
-                data[i][col] = word.charAt(i - row);
+            }
+            for (int j = 0; j < word.length() + row; j++) {
+                data[j][col] = word.charAt(j - row);
             }
         }
         return true;
     }
 
     public static void main(String[] args) {
-        WordSearch x = new WordSearch(5, 5);
+        WordSearch x = new WordSearch(10, 10);
         x.addWordVertical("hello", 0, 0);
         x.addWordHorizontal("haunt", 0, 0);
         x.addWordHorizontal("energ", 1, 0);
-        x.addWordVertical("anber", 0, 1);
-        x.addWordHorizontal("man", 2, 2);
-
-        x.clear(); 
+        x.addWordVertical("tgonp", 0, 4);
+        x.addWordVertical("aniop", 0, 1);
+        x.addWordHorizontal("linoo", 2, 0);
+        x.addWordVertical("nrolp", 0, 3);
+        x.addWordVertical("hellooo", 0, 5);
+        x.addWordVertical("uener", 0, 2);
+        x.addWordHorizontal("hauntheelp",0,0);
+        x.addWordVertical("helloworld",0,0);
 
         System.out.println(x);
     }
