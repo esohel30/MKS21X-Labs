@@ -107,14 +107,42 @@ public class WordSearch {
      *and the board is not modified.
      */
     public boolean addWordDiagonal(String word,int row, int col){
+      int minLen = data.length;
+      if(minLen > data[0].length){
+        minLen = data[0].length;
+      }
+      int maxPos = row;
+      if(maxPos < col){
+        maxPos = col;
+      }
 
-
+      if(minLen < word.length() + maxPos){
+        return false;
+      }else {
+        for(int j=0; j < word.length(); j++){
+          if(data[row +j][col+j] != '_' && data[row+j][col +j] != word.charAt(j)){
+            return false;
+          }
+        }
+      for(int i=0; i < word.length(); i++){
+        data[row+ i][col+i] = word.charAt(i);
+        }
+        return true;
     }
+  }
 
 
     public static void main(String[] args) {
         WordSearch x = new WordSearch(10, 10);
-
+        x.addWordDiagonal("abcde",0,0);
+        x.addWordDiagonal("abcd",1,0);
+        x.addWordDiagonal("abc",2,0);
+        x.addWordDiagonal("ab",3,0);
+        x.addWordDiagonal("a",4,0);
+        x.addWordVertical("x",0,1);
+        x.addWordVertical("xx",0,2);
+        x.addWordVertical("xxx",0,3);
+        x.addWordVertical("xxxx",0,4);
         System.out.println(x);
     }
 }
