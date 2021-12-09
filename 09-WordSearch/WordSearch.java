@@ -95,20 +95,25 @@ public class WordSearch {
         }
         return true;
     }
+    /**Attempts to add a given word to the specified position of the WordGrid.
+     *The word is added from top left towards the bottom right, it must fit on the board,
+     *and must have a corresponding letter to match any letters that it overlaps.
+     *
+     *@param word is any text to be added to the word grid.
+     *@param row is the vertical locaiton of where you want the word to start.
+     *@param col is the horizontal location of where you want the word to start.
+     *@return true when the word is added successfully. When the word doesn't fit,
+     *or there are overlapping letters that do not match, then false is returned
+     *and the board is not modified.
+     */
+    public boolean addWordDiagonal(String word,int row, int col){
+
+
+    }
+
 
     public static void main(String[] args) {
         WordSearch x = new WordSearch(10, 10);
-        x.addWordVertical("hello", 0, 0);
-        x.addWordHorizontal("haunt", 0, 0);
-        x.addWordHorizontal("energ", 1, 0);
-        x.addWordVertical("tgonp", 0, 4);
-        x.addWordVertical("aniop", 0, 1);
-        x.addWordHorizontal("linoo", 2, 0);
-        x.addWordVertical("nrolp", 0, 3);
-        x.addWordVertical("hellooo", 0, 5);
-        x.addWordVertical("uener", 0, 2);
-        x.addWordHorizontal("hauntheelp",0,0);
-        x.addWordVertical("helloworld",0,0);
 
         System.out.println(x);
     }
