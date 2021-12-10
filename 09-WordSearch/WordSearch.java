@@ -127,10 +127,18 @@ public class WordSearch {
     }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
+
+      if(rowInc == 0 && colInc == 0) return false;
+      if(rowInc > 1 || colInc > 1)   return false;
+
       int rowCopy = row;
       int colCopy = col;
 
       for(int j=0; j < word.length(); j++) {
+        if( (rowCopy < 0) || (rowCopy > data.length ) || (rowCopy > data[0].length ) ||
+            (colCopy < 0) || (colCopy > data.length ) || (colCopy > data[0].length )) {
+          return false;
+        }
         if(data[rowCopy][colCopy] != '_' && data[rowCopy][colCopy] != word.charAt(j)) {
           return false;
         }
@@ -146,16 +154,21 @@ public class WordSearch {
       return true;
     }
 
-
-
-
-
-
-
-
     public static void main(String[] args) {
-        WordSearch x = new WordSearch(5, 5);
-        x.addWord(4,4,"hello",-1,-1);
+        WordSearch x = new WordSearch(5, 6);
+        x.addWord(0,5, "hello" , 1,-1);
+        x.addWord(0,0, "earth" , 1, 0);
+        x.addWord(0,0, "earthh", 0, 1);
+        x.addWord(4,4, "rorre" ,-1,-1);
+        x.addWord(4,5, "openh" ,-1, 0);
+
+        //these should be ignored
+        x.addWord(0,0, "appletree", 0,1);
+        x.addWord(0,0, "app", 32,1);
+        x.addWord(0,0, "app", 0,-1);
+
+
+
         System.out.println(x);
     }
 }
