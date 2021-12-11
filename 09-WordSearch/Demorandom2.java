@@ -1,5 +1,5 @@
 import java.util.Random;
-  public class DemoRandom2{
+  public class Demorandom2{
     public static void main(String[]args){
 
       //here no seed is provided, so it uses the clock as a seed
@@ -8,7 +8,7 @@ import java.util.Random;
       int seed = rng.nextInt();
 
       System.out.println("The seed: "+seed);
-      rng = new Random(seed);
+      rng = new Random(-1831412850);
       for(int i =  0; i < 10; i++ ){
         System.out.println(rng.nextInt() % 1000);
       }

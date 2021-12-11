@@ -17,6 +17,49 @@ public class WordSearch {
         clear();
     }
 
+    public WordSearch( int rows, int cols, String fileName){
+        this.data = new char[rows][cols];
+        clear();
+        addAllWords(fileName);
+      }
+
+      public WordSearch( int rows, int cols, String fileName, int randSeed){
+        this.data = new char[rows][cols];
+        clear();
+        try {
+            Random rng = new Random();
+            int seed = rng.nextInt();
+            this.seed = randSeed;
+            rng = new Random(randSeed);
+            ArrayList < String > wordsToBeAdded = new ArrayList < String > (0);
+            File file = new File(fileName);
+            Scanner input = new Scanner(file);
+            while (input.hasNextLine()) {
+                wordsToBeAdded.add(input.nextLine());
+            }
+            for (int i = 0; i < wordsToBeAdded.size(); i++) {
+                int j = 0;
+                while (j < 100) {
+                    int a = (Math.abs(rng.nextInt() % data.length));
+                    int b = (Math.abs(rng.nextInt() % data[0].length));
+                    int c = rng.nextInt() % 2;
+                    int d = rng.nextInt() % 2;
+                    boolean condition = addWord(a, b, wordsToBeAdded.get(i), c, d);
+                    if (condition == true) {
+                        addWord(a, b, wordsToBeAdded.get(i), c, d);
+                        wordsAdded.add(wordsToBeAdded.get(i));
+                        break;
+                    } else {
+                        j++;
+                    }
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("insert file name properly");
+        }
+
+      }
+
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear() {
         for (int i = 0; i < data.length; i++) {
@@ -37,7 +80,16 @@ public class WordSearch {
             }
             temp += "\n";
         }
-        return temp + "\n" + "seed: " + seed;
+        String words = "";
+        for(int i =0; i < wordsAdded.size(); i++){
+          if(i != wordsAdded.size() -1){
+          words += wordsAdded.get(i) + ", ";
+        }
+        else{
+          words += wordsAdded.get(i);
+        }
+      }
+        return temp + "\n" +"words:" + words + "\n" +"seed: " + this.seed;
     }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
@@ -74,16 +126,12 @@ public class WordSearch {
             int seed = rng.nextInt();
             this.seed = seed;
             rng = new Random(seed);
-
             ArrayList < String > wordsToBeAdded = new ArrayList < String > (0);
             File file = new File(fileName);
             Scanner input = new Scanner(file);
-
             while (input.hasNextLine()) {
                 wordsToBeAdded.add(input.nextLine());
             }
-
-
             for (int i = 0; i < wordsToBeAdded.size(); i++) {
                 int j = 0;
                 while (j < 100) {
@@ -91,31 +139,39 @@ public class WordSearch {
                     int b = (Math.abs(rng.nextInt() % data[0].length));
                     int c = rng.nextInt() % 2;
                     int d = rng.nextInt() % 2;
-
                     boolean condition = addWord(a, b, wordsToBeAdded.get(i), c, d);
                     if (condition == true) {
                         addWord(a, b, wordsToBeAdded.get(i), c, d);
-
+                        wordsAdded.add(wordsToBeAdded.get(i));
                         break;
                     } else {
                         j++;
                     }
                 }
             }
-
         } catch (FileNotFoundException ex) {
             System.out.println("insert file name properly");
         }
     }
 
-
-
     public static void main(String[] args) {
-        WordSearch x = new WordSearch(14, 14);
+        WordSearch t1 = new WordSearch(17, 17, "data.java");
+        WordSearch t2 = new WordSearch(17, 17, "data.java");
+        WordSearch t3 = new WordSearch(17, 17, "data.java");
+        WordSearch t4 = new WordSearch(17, 17, "data.java", 1026802272);
+        WordSearch t5 = new WordSearch(17, 17, "data.java", 1026802272);
+        WordSearch t6 = new WordSearch(17, 17, "data.java", 1026802272);
 
-        x.addAllWords("data.java");
+        System.out.println(t1);
+        System.out.println(t2);
+        System.out.println(t3);
+        System.out.println(t4);
+        System.out.println(t5);
+        System.out.println(t6);
 
-        System.out.println(x);
+
+
+
 
     }
 }

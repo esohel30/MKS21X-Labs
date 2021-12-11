@@ -12,3 +12,7 @@ counter
 strike
 fortnite
 minecraft
+LOL
+LOL
+OLOL
+LOLO
