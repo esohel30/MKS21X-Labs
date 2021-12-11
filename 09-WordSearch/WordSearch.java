@@ -5,7 +5,7 @@ public class WordSearch {
     private char[][] data;
     private int seed;
     private Random randgen;
-    private ArrayList <String> wordsAdded = new ArrayList<String>(0);
+    private ArrayList < String > wordsAdded = new ArrayList < String > (0);
 
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
@@ -17,13 +17,13 @@ public class WordSearch {
         clear();
     }
 
-    public WordSearch( int rows, int cols, String fileName){
+    public WordSearch(int rows, int cols, String fileName) {
         this.data = new char[rows][cols];
         clear();
         addAllWords(fileName);
-      }
+    }
 
-      public WordSearch( int rows, int cols, String fileName, int randSeed){
+    public WordSearch(int rows, int cols, String fileName, int randSeed) {
         this.data = new char[rows][cols];
         clear();
         try {
@@ -58,7 +58,7 @@ public class WordSearch {
             System.out.println("insert file name properly");
         }
 
-      }
+    }
 
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear() {
@@ -81,15 +81,14 @@ public class WordSearch {
             temp += "\n";
         }
         String words = "";
-        for(int i =0; i < wordsAdded.size(); i++){
-          if(i != wordsAdded.size() -1){
-          words += wordsAdded.get(i) + ", ";
+        for (int i = 0; i < wordsAdded.size(); i++) {
+            if (i != wordsAdded.size() - 1) {
+                words += wordsAdded.get(i) + ", ";
+            } else {
+                words += wordsAdded.get(i);
+            }
         }
-        else{
-          words += wordsAdded.get(i);
-        }
-      }
-        return temp + "\n" +"words:" + words + "\n" +"seed: " + this.seed;
+        return temp + "\n" + "words:" + words + "\n" + "seed: " + this.seed;
     }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
@@ -168,10 +167,6 @@ public class WordSearch {
         System.out.println(t4);
         System.out.println(t5);
         System.out.println(t6);
-
-
-
-
 
     }
 }
