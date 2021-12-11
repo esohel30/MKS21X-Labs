@@ -1,0 +1,14 @@
+pacman
+sonic
+diablo
+mario
+zelda
+call
+duty
+final
+fantasy
+skyrim
+counter
+strike
+fortnite
+minecraft
