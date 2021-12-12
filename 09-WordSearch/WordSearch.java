@@ -7,11 +7,6 @@ public class WordSearch {
     private Random randgen;
     private ArrayList < String > wordsAdded = new ArrayList < String > (0);
 
-    /**Initialize the grid to the size specified
-     *and fill all of the positions with '_'
-     *@param rows is the starting height of the WordSearch
-     *@param cols is the starting width of the WordSearch
-     */
     public WordSearch(int rows, int cols) {
         this.data = new char[rows][cols];
         clear();
@@ -101,8 +96,8 @@ public class WordSearch {
         int colCopy = col;
 
         for (int j = 0; j < word.length(); j++) {
-            if ((rowCopy < 0) || (rowCopy > data.length - 1) || (rowCopy > data[0].length - 1) ||
-                (colCopy < 0) || (colCopy > data.length - 1) || (colCopy > data[0].length - 1)) {
+            if ((rowCopy < 0) || (rowCopy > data.length - 1) ||
+                (colCopy < 0) || (colCopy > data[0].length - 1)) {
                 return false;
             }
             if (data[rowCopy][colCopy] != '_' && data[rowCopy][colCopy] != word.charAt(j)) {
@@ -134,8 +129,8 @@ public class WordSearch {
             for (int i = 0; i < wordsToBeAdded.size(); i++) {
                 int j = 0;
                 while (j < 100) {
-                    int a = (Math.abs(rng.nextInt() % data.length));
-                    int b = (Math.abs(rng.nextInt() % data[0].length));
+                    int a = (Math.abs(rng.nextInt() % (data.length)));
+                    int b = (Math.abs(rng.nextInt() % (data[0].length)));
                     int c = rng.nextInt() % 2;
                     int d = rng.nextInt() % 2;
                     boolean condition = addWord(a, b, wordsToBeAdded.get(i), c, d);
@@ -154,12 +149,17 @@ public class WordSearch {
     }
 
     public static void main(String[] args) {
-        WordSearch t1 = new WordSearch(17, 17, "data.java");
-        WordSearch t2 = new WordSearch(17, 17, "data.java");
-        WordSearch t3 = new WordSearch(17, 17, "data.java");
-        WordSearch t4 = new WordSearch(17, 17, "data.java", 1026802272);
-        WordSearch t5 = new WordSearch(17, 17, "data.java", 1026802272);
-        WordSearch t6 = new WordSearch(17, 17, "data.java", 1026802272);
+        WordSearch t1 = new WordSearch(10, 20, "data.java");
+        WordSearch t2 = new WordSearch(10, 20, "data.java");
+        WordSearch t3 = new WordSearch(10, 20, "data.java");
+        WordSearch t4 = new WordSearch(20, 10, "data.java");
+        WordSearch t5 = new WordSearch(15,15);
+        WordSearch t6 = new WordSearch(5, 5, "data.java");
+        WordSearch t7 = new WordSearch(25,25, "funwords.java");
+
+
+        t5.addAllWords("data.java");
+
 
         System.out.println(t1);
         System.out.println(t2);
@@ -167,6 +167,10 @@ public class WordSearch {
         System.out.println(t4);
         System.out.println(t5);
         System.out.println(t6);
+        System.out.println(t7);
+
+
+
 
     }
 }
