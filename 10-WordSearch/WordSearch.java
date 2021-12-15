@@ -1,3 +1,4 @@
+
 import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 public class WordSearch {
@@ -30,9 +31,9 @@ public class WordSearch {
             File file = new File(fileName);
             Scanner input = new Scanner(file);
             while (input.hasNextLine()) {
-                wordsToBeAdded.add(input.nextLine().toUpperCase() );
+                wordsToBeAdded.add(input.nextLine().toUpperCase());
             }
-            while(wordsToBeAdded.size() != 0) {
+            while (wordsToBeAdded.size() != 0) {
                 int j = 0;
                 int e = (Math.abs(rng.nextInt() % wordsToBeAdded.size()));
                 String word = wordsToBeAdded.remove(e);
@@ -48,8 +49,7 @@ public class WordSearch {
                     if (condition == true) {
                         wordsAdded.add(word);
                         break;
-                    }
-                     else {
+                    } else {
                         j++;
                     }
                 }
@@ -72,24 +72,24 @@ public class WordSearch {
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
-     public String toString() {
-         String temp = "";
-         for (int i = 0; i < data.length; i++) {
-             for (int j = 0; j < data[i].length; j++) {
-                 temp += data[i][j] + " ";
-             }
-             temp += "\n";
-         }
-         String words = "";
-         for (int i = 0; i < wordsAdded.size(); i++) {
-             if (i != wordsAdded.size() - 1) {
-                 words += wordsAdded.get(i) + ", ";
-             } else {
-                 words += wordsAdded.get(i);
-             }
-         }
-         return temp + "\n" + "words:" + words + "\n" + "seed: " + this.seed;
-     }
+    public String toString() {
+        String temp = "";
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                temp += data[i][j] + " ";
+            }
+            temp += "\n";
+        }
+        String words = "";
+        for (int i = 0; i < wordsAdded.size(); i++) {
+            if (i != wordsAdded.size() - 1) {
+                words += wordsAdded.get(i) + ", ";
+            } else {
+                words += wordsAdded.get(i);
+            }
+        }
+        return temp + "\n" + "words:" + words + "\n" + "seed: " + this.seed;
+    }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
 
@@ -129,9 +129,9 @@ public class WordSearch {
             File file = new File(fileName);
             Scanner input = new Scanner(file);
             while (input.hasNextLine()) {
-                wordsToBeAdded.add(input.nextLine().toUpperCase() );
+                wordsToBeAdded.add(input.nextLine().toUpperCase());
             }
-            while(wordsToBeAdded.size() != 0) {
+            while (wordsToBeAdded.size() != 0) {
                 int j = 0;
                 int e = (Math.abs(rng.nextInt() % wordsToBeAdded.size()));
                 String word = wordsToBeAdded.remove(e);
@@ -147,8 +147,7 @@ public class WordSearch {
                     if (condition == true) {
                         wordsAdded.add(word);
                         break;
-                    }
-                     else {
+                    } else {
                         j++;
                     }
                 }
@@ -160,50 +159,48 @@ public class WordSearch {
 
 
     private void fillInRandomLetter() {
-      Random rng = new Random();
-      rng = new Random(seed);
-      for(int i =0; i < data.length; i++){
-        for(int j =0; j < data[i].length; j++){
-          if(data[i][j] == '_'){
-            data[i][j] = (char)('A' + rng.nextInt(25) );
-          }
+        Random rng = new Random();
+        rng = new Random(seed);
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                if (data[i][j] == '_') {
+                    data[i][j] = (char)('A' + rng.nextInt(26));
+                }
+            }
         }
-      }
     }
 
 
 
     public static void main(String[] args) {
-      int row = Integer.parseInt(args[0]);
-      int col = Integer.parseInt(args[1]);
-      String fileName = args[2];
-      int method = Integer.parseInt(args[3]);
+        int row = Integer.parseInt(args[0]);
+        int col = Integer.parseInt(args[1]);
+        String fileName = args[2];
+        int method = Integer.parseInt(args[3]);
 
-      if(method == 0){
-        if(args.length ==5){
-          WordSearch t1 = new WordSearch(row, col, fileName, Integer.parseInt(args[4]));
-          System.out.print(t1);
-      }
-      else{
-        WordSearch t1 = new WordSearch(row, col, fileName);
-        System.out.print(t1);
-      }
-    }
+        if (method == 0) {
+            if (args.length == 5) {
+                WordSearch t1 = new WordSearch(row, col, fileName, Integer.parseInt(args[4]));
+                System.out.print(t1);
+            } else {
+                WordSearch t1 = new WordSearch(row, col, fileName);
+                System.out.print(t1);
+            }
+        }
 
-      if(method == 1){
-        if(args.length ==5){
-          WordSearch t1 = new WordSearch(row, col, fileName,  Integer.parseInt(args[4]));
-          t1.fillInRandomLetter();
-          System.out.print(t1);
-      }
-      else{
-        WordSearch t1 = new WordSearch(row, col, fileName);
-        t1.fillInRandomLetter();
-        System.out.print(t1);
-      }
-    }
+        if (method == 1) {
+            if (args.length == 5) {
+                WordSearch t1 = new WordSearch(row, col, fileName, Integer.parseInt(args[4]));
+                t1.fillInRandomLetter();
+                System.out.print(t1);
+            } else {
+                WordSearch t1 = new WordSearch(row, col, fileName);
+                t1.fillInRandomLetter();
+                System.out.print(t1);
+            }
+        }
 
 
     }
 
-  }
+}
