@@ -159,25 +159,49 @@ public class WordSearch {
     }
 
 
+    private void fillInRandomLetter() {
+      Random rng = new Random();
+      rng = new Random(seed);
+      for(int i =0; i < data.length; i++){
+        for(int j =0; j < data[i].length; j++){
+          if(data[i][j] == '_'){
+            data[i][j] = (char)('A' + rng.nextInt(25) );
+          }
+        }
+      }
+    }
+
+
+
     public static void main(String[] args) {
       int row = Integer.parseInt(args[0]);
       int col = Integer.parseInt(args[1]);
       String fileName = args[2];
       int method = Integer.parseInt(args[3]);
-      if(args.length == 5){
-        int seed = Integer.parseInt(args[4]);
-      }
 
-      if(args.length == 4){
-      WordSearch t1 = new WordSearch(row, col, fileName);
-      System.out.print(t1);
+      if(method == 0){
+        if(args.length ==5){
+          WordSearch t1 = new WordSearch(row, col, fileName, Integer.parseInt(args[4]));
+          System.out.print(t1);
       }
-
-      if(args.length == 5){
+      else{
         WordSearch t1 = new WordSearch(row, col, fileName);
         System.out.print(t1);
       }
+    }
 
+      if(method == 1){
+        if(args.length ==5){
+          WordSearch t1 = new WordSearch(row, col, fileName,  Integer.parseInt(args[4]));
+          t1.fillInRandomLetter();
+          System.out.print(t1);
+      }
+      else{
+        WordSearch t1 = new WordSearch(row, col, fileName);
+        t1.fillInRandomLetter();
+        System.out.print(t1);
+      }
+    }
 
 
     }
