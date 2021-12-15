@@ -32,19 +32,24 @@ public class WordSearch {
             while (input.hasNextLine()) {
                 wordsToBeAdded.add(input.nextLine().toUpperCase() );
             }
-            for (int i = 0; i < wordsToBeAdded.size(); i++) {
+            while(wordsToBeAdded.size() != 0) {
                 int j = 0;
+                int e = (Math.abs(rng.nextInt() % wordsToBeAdded.size()));
+                String word = wordsToBeAdded.remove(e);
+
                 while (j < 100) {
-                    int a = (Math.abs(rng.nextInt() % data.length));
-                    int b = (Math.abs(rng.nextInt() % data[0].length));
+                    int a = (Math.abs(rng.nextInt() % (data.length)));
+                    int b = (Math.abs(rng.nextInt() % (data[0].length)));
                     int c = rng.nextInt() % 2;
                     int d = rng.nextInt() % 2;
-                    boolean condition = addWord(a, b, wordsToBeAdded.get(i), c, d);
+
+                    boolean condition = addWord(a, b, word, c, d);
+
                     if (condition == true) {
-                        addWord(a, b, wordsToBeAdded.get(i), c, d);
-                        wordsAdded.add(wordsToBeAdded.get(i));
+                        wordsAdded.add(word);
                         break;
-                    } else {
+                    }
+                     else {
                         j++;
                     }
                 }
@@ -153,26 +158,28 @@ public class WordSearch {
         }
     }
 
+
     public static void main(String[] args) {
-        WordSearch t1 = new WordSearch(10, 20, "data.java");
-        WordSearch t2 = new WordSearch(10, 20, "data.java");
-        WordSearch t3 = new WordSearch(10, 20, "data.java");
-        WordSearch t4 = new WordSearch(20, 10, "data.java");
-        WordSearch t5 = new WordSearch(15,15);
-        WordSearch t6 = new WordSearch(5, 5, "data.java");
-        WordSearch t7 = new WordSearch(25,25, "data.java");
+      int row = Integer.parseInt(args[0]);
+      int col = Integer.parseInt(args[1]);
+      String fileName = args[2];
+      int method = Integer.parseInt(args[3]);
+      if(args.length == 5){
+        int seed = Integer.parseInt(args[4]);
+      }
+
+      if(args.length == 4){
+      WordSearch t1 = new WordSearch(row, col, fileName);
+      System.out.print(t1);
+      }
+
+      if(args.length == 5){
+        WordSearch t1 = new WordSearch(row, col, fileName);
+        System.out.print(t1);
+      }
 
 
-        t5.addAllWords("data.java");
-
-
-        System.out.println(t1);
-        System.out.println(t2);
-        System.out.println(t3);
-        System.out.println(t4);
-        System.out.println(t5);
-        System.out.println(t6);
-        System.out.println(t7);
 
     }
+
   }
