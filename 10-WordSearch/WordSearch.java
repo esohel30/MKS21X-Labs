@@ -67,21 +67,24 @@ public class WordSearch {
      *@return a String with each character separated by spaces, and rows
      *separated by newlines.
      */
-     public String toString(){
-   String ans = "";
-   for(int r = 0; r < data.length; r++){
-     for(int c = 0; c < data[r].length; c++){
-       ans += data[r][c]+" ";
+     public String toString() {
+         String temp = "";
+         for (int i = 0; i < data.length; i++) {
+             for (int j = 0; j < data[i].length; j++) {
+                 temp += data[i][j] + " ";
+             }
+             temp += "\n";
+         }
+         String words = "";
+         for (int i = 0; i < wordsAdded.size(); i++) {
+             if (i != wordsAdded.size() - 1) {
+                 words += wordsAdded.get(i) + ", ";
+             } else {
+                 words += wordsAdded.get(i);
+             }
+         }
+         return temp + "\n" + "words:" + words + "\n" + "seed: " + this.seed;
      }
-     ans+="\n";
-   }
-   ans += "words: ";
-   for(String word:wordsAdded){
-     ans+= word+" ";
-   }
-   ans += "\nseed: "+seed;
-   return ans;
- }
 
     public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
 
@@ -123,19 +126,24 @@ public class WordSearch {
             while (input.hasNextLine()) {
                 wordsToBeAdded.add(input.nextLine().toUpperCase() );
             }
-            for (int i = 0; i < wordsToBeAdded.size(); i++) {
+            while(wordsToBeAdded.size() != 0) {
                 int j = 0;
+                int e = (Math.abs(rng.nextInt() % wordsToBeAdded.size()));
+                String word = wordsToBeAdded.remove(e);
+
                 while (j < 100) {
                     int a = (Math.abs(rng.nextInt() % (data.length)));
                     int b = (Math.abs(rng.nextInt() % (data[0].length)));
                     int c = rng.nextInt() % 2;
                     int d = rng.nextInt() % 2;
-                    boolean condition = addWord(a, b, wordsToBeAdded.get(i), c, d);
+
+                    boolean condition = addWord(a, b, word, c, d);
+
                     if (condition == true) {
-                        addWord(a, b, wordsToBeAdded.get(i), c, d);
-                        wordsAdded.add(wordsToBeAdded.get(i));
+                        wordsAdded.add(word);
                         break;
-                    } else {
+                    }
+                     else {
                         j++;
                     }
                 }

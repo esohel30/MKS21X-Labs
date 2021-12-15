@@ -16,3 +16,16 @@ battle
 field
 final
 fantasy
+Mario
+Link
+Banjo
+Scorpion
+Boomer
+Subzero
+Master
+chief
+Luigi
+kirby
+bowser
+pikachu
+peach
