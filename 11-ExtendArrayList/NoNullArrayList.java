@@ -13,9 +13,11 @@ public class NoNullArrayList<T> extends ArrayList<T> {
   }
 
   @Override
-  public T set(int index, T val) {
-    if (val == null) {
+  public T set(int ind, T current) {
+    if (current == null) {
       throw new IllegalArgumentException();
-    } else {super.set(index, val);}
-    return val;
+    }
+    else {super.set(ind, val);
+    }
+    return current;
   }
