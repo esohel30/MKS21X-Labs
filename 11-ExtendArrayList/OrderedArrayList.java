@@ -36,3 +36,8 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
       super.add(where, value);
       return true;
     }
+
+    @Override
+    public void add(int index, T value){
+      super.add(value);
+    }
