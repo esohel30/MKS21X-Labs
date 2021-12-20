@@ -11,3 +11,11 @@ public class NoNullArrayList<T> extends ArrayList<T> {
   public NoNullArrayList(int initialcap) {
     super(initialcap);
   }
+
+  @Override
+  public T set(int index, T val) {
+    if (val == null) {
+      throw new IllegalArgumentException();
+    } else {super.set(index, val);}
+    return val;
+  }
