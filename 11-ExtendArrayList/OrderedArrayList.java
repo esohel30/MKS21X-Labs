@@ -16,14 +16,23 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   when inserting into the OrderedArrayList .*/
 
   private int whereToPlace(T val){
-      int size = super.size();
+      int idx = super.size();
       // takes the size of the og array list
       for (int j = 0; j < size; j++){
         if (val.compareTo(super.get(j)) < 0){
           // compares the values lexicographically
-          size = j;
+          idx = j;
           break;
         }
       }
-      return size;
+      return idx;
   }
+
+      @Override
+    public boolean add(T value){
+      super.add(value);
+      int where = whereToPlace(value);
+      super.remove(super.lastIndexOf(value));
+      super.add(where, value);
+      return true;
+    }
