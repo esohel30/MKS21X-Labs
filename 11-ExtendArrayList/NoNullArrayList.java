@@ -17,7 +17,23 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     if (current == null) {
       throw new IllegalArgumentException();
     }
-    else {super.set(ind, val);
+    else {
+      super.set(ind, current);
     }
     return current;
   }
+
+  @Override
+  public boolean add(T current) {
+    if (current == null) {
+      throw new IllegalArgumentException();
+    }
+    else {
+      super.add(current);
+    }
+    return true;
+  }
+
+
+
+}
