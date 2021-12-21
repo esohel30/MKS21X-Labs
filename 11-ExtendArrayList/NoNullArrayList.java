@@ -15,7 +15,7 @@ public class NoNullArrayList < T > extends ArrayList < T > {
     @Override
     public T set(int idx, T element) {
         if (element == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("cant add null");
         } else {
             super.set(idx, element);
         }
@@ -25,7 +25,7 @@ public class NoNullArrayList < T > extends ArrayList < T > {
     @Override
     public boolean add(T element) {
         if (element == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("cant add null");
         } else {
             super.add(element);
         }
@@ -35,7 +35,7 @@ public class NoNullArrayList < T > extends ArrayList < T > {
     @Override
     public void add(int idx, T element) {
         if (element == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("cant add null");
         } else {
             super.add(idx, element);
         }

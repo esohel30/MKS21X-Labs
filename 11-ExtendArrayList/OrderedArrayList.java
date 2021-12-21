@@ -21,6 +21,11 @@ public class OrderedArrayList < T extends Comparable < T >> extends NoNullArrayL
         int size = super.size();
         int index = size;
         int j =0;
+
+        if(element == null){
+          return 0;
+        }
+
         while (j < size) {
             if (super.get(j).compareTo(element) > 0) {
                 index = j;

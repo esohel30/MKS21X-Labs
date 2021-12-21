@@ -21,6 +21,7 @@ public class tester{
     list.add("k");
     list.add("j");
     list.add("HELLICOPTER HILIOPTER");
+    list.add(null);
 
 
 
