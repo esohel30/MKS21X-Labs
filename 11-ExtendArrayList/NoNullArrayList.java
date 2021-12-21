@@ -11,10 +11,10 @@ public class NoNullArrayList < T > extends ArrayList < T > {
     }
 
     //overriden methods
-    
+
     @Override
     public T set(int idx, T element) {
-        if (current == null) {
+        if (element == null) {
             throw new IllegalArgumentException();
         } else {
             super.set(idx, element);
