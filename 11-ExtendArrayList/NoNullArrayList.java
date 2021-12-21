@@ -2,40 +2,42 @@ import java.util.ArrayList;
 
 public class NoNullArrayList < T > extends ArrayList < T > {
 
+    //constructors
     public NoNullArrayList() {
         super();
     }
-
-    public NoNullArrayList(int initialcap) {
-        super(initialcap);
+    public NoNullArrayList(int cap) {
+        super(cap);
     }
 
+    //overriden methods
+    
     @Override
-    public T set(int idx, T current) {
+    public T set(int idx, T element) {
         if (current == null) {
             throw new IllegalArgumentException();
         } else {
-            super.set(idx, current);
+            super.set(idx, element);
         }
-        return current;
+        return element;
     }
 
     @Override
-    public boolean add(T current) {
-        if (current == null) {
+    public boolean add(T element) {
+        if (element == null) {
             throw new IllegalArgumentException();
         } else {
-            super.add(current);
+            super.add(element);
         }
         return true;
     }
 
     @Override
-    public void add(int idx, T current) {
-        if (current == null) {
+    public void add(int idx, T element) {
+        if (element == null) {
             throw new IllegalArgumentException();
         } else {
-            super.add(idx, current);
+            super.add(idx, element);
         }
     }
 

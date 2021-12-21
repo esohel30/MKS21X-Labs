@@ -4,48 +4,48 @@ import java.io.*;
 
 public class OrderedArrayList < T extends Comparable < T >> extends NoNullArrayList < T > {
 
+    // constructors
     public OrderedArrayList() {
         super();
     }
 
-    public OrderedArrayList(int startingCapacity) {
-        super(startingCapacity);
+    public OrderedArrayList(int cap) {
+        super(cap);
     }
+
+    // methods
 
     /*return the index that the value should be placed
     when inserting into the OrderedArrayList .*/
-
-    private int whereToPlace(T val) {
-        int idx = super.size();
-        // takes the size of the og array list
-        for (int j = 0; j < size; j++) {
-            if (val.compareTo(super.get(j)) < 0) {
-                // compares the values lexicographically
-                idx = j;
+    private int whereToPlace(T element) {
+        int index;
+        int size = super.size();
+        while (j < size) {
+            if (super.get(j).compareTo(element) > 0) {
+                index = j;
                 break;
+            } else {
+                j++;
             }
         }
-        return idx;
+        return index;
+    }
+
+
+    @Override
+    public boolean add(T element) {
+        super.add(whereToPlace(element), element);
     }
 
     @Override
-    public boolean add(T value) {
-        super.add(value);
-        int where = whereToPlace(value);
-        super.remove(super.lastIndexOf(value));
-        super.add(where, value);
-        return true;
-    }
-
-    @Override
-    public void add(int idx T value) {
-        super.add(value);
+    public void add(int idx T element) {
+        super.add(element);
     }
 
     @Override
     public T set(int index, T value) {
-        T position = super.remove(index);
+        T currentvalue = super.remove(index);
         add(value);
-        return position;
+        return currentValue;
     }
 }
