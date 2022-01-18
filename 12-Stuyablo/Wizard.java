@@ -11,7 +11,7 @@ public class Wizard extends Adventurer {
 	     this(name,"ALAKAZAM", 18);
     }
 
-    public Warrior(String name, String spell, int mana){
+    public Wizard(String name, String spell, int mana){
       super(name,30+(int)(Math.random()*10));
       setWarcry(spell);
       setMana(mana);
@@ -20,7 +20,7 @@ public class Wizard extends Adventurer {
 
     //warrior methods
 
-    public void attack(Damageable other){
+    public String attack(Damageable other){
     	  int damage = (int)(Math.random()*7)+1;
   	    other.applyDamage(damage);
   	    setMana(getMana() + 1);
@@ -29,7 +29,7 @@ public class Wizard extends Adventurer {
             damage + " damage!");
     }
 
-    public void specialAttack(Damageable other){
+    public String specialAttack(Damageable other){
 	     if(getMana() >= 3){
   	        int damage = (int)(Math.random()*15)+1;
             other.applyDamage(damage);

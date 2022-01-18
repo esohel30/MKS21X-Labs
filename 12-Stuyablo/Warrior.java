@@ -11,7 +11,7 @@ public class Warrior extends Adventurer {
 	     this(name,"Valhalllaaaaa!!", 18);
     }
 
-    public Warrior(String name, String warcry, int rage){
+    public Warrior(String name, String warcry, int rage) {
       super(name,30+(int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
@@ -20,7 +20,7 @@ public class Warrior extends Adventurer {
 
     //warrior methods
 
-    public void attack(Damageable other){
+    public String attack(Damageable other){
     	  int damage = (int)(Math.random()*10)+1;
   	    other.applyDamage(damage);
   	    setRage(getRage() + 1);
@@ -29,7 +29,7 @@ public class Warrior extends Adventurer {
             damage + " damage!");
     }
 
-    public void specialAttack(Damageable other){
+    public String specialAttack(Damageable other){
 	     if(getRage() >= 10){
   	        int damage = (int)(Math.random()*20)+1;
             other.applyDamage(damage);

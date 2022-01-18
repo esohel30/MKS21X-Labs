@@ -60,6 +60,6 @@ public class Text{
               //Tested and working in:
               //git-bash (windows 10),    wsl (windows 10+11),   powershell windows 11
               public static void main(String[] args) {
-        
+
               }
             }
