@@ -35,7 +35,7 @@ public class Wizard extends Adventurer {
             other.applyDamage(damage);
             System.out.println(this + " unleashes his wizardly powers upon "
              + other + " for " + damage + " damage! "+warcry);
-            setRage(getRage() - 10);
+            setMana(getMana() - 10);
 	    }else{
 			    System.out.println("Not enough mana! ");
           attack(other);
