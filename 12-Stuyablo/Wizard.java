@@ -1,6 +1,6 @@
 public class Wizard extends Adventurer {
     private int  mana;
-    private String warcry;
+    private String spell;
 
     public Wizard(){
 	     this("Albus");
@@ -12,27 +12,27 @@ public class Wizard extends Adventurer {
 
     public Warrior(String name, String warcry, int mana){
       super(name,30+(int)(Math.random()*10));
-      setWarcry(warcry);
+      setSpell(spell);
       setMana(mana);
     }
 
     //warrior methods
 
     public void attack(Damageable other){
-    	  int damage = (int)(Math.random()*10)+1;
+    	  int damage = (int)(Math.random()*7)+1;
   	    other.applyDamage(damage);
   	    setMana(getMana() + 1);
   	    System.out.println(this +
-            " attacked " + other + " for " +
+            " hit " + other + " for " +
             damage + " damage!");
     }
 
     public void specialAttack(Damageable other){
 	     if(getMana() >= 10){
-  	        int damage = (int)(Math.random()*20)+1;
+  	        int damage = (int)(Math.random()*15)+1;
             other.applyDamage(damage);
-            System.out.println(this + " unleashes his wizard powers upon "
-             + other + " for " + damage + " damage! "+warcry);
+            System.out.println(this + " unleashes his wizardly powers upon "
+             + other + " for " + damage + " damage! "+spell);
             setRage(getRage() - 10);
 	    }else{
 			    System.out.println("Not enough mana! ");
@@ -40,20 +40,20 @@ public class Wizard extends Adventurer {
 	    }
     }
 
-    //get methods
+
+    // getters and setters
 
     public int getMana(){
-	     return rage;
+	     return mana;
     }
 
     //set methods
-    public void setMana(int r){
-	     this.rage = r;
+    public void setMana(int mana){
+	     this.mana = mana;
     }
 
-    public void setWarcry(String warcry){
-	     this.warcry = warcry;
+    public void setWarcry(String spell){
+	     this.spell = spell;
     }
-
 
 }
