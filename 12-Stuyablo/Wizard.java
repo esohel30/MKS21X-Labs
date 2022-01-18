@@ -47,7 +47,7 @@ public class Wizard extends Adventurer {
     }
 
     //set methods
-    public void setRage(int r){
+    public void setMana(int r){
 	     this.rage = r;
     }
 
