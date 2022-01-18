@@ -1,6 +1,6 @@
 public class Wizard extends Adventurer {
     private int  mana;
-    private String spell;
+    private String warcry;
     private int manaMax;
 
     public Wizard(){
@@ -13,7 +13,7 @@ public class Wizard extends Adventurer {
 
     public Warrior(String name, String spell, int mana){
       super(name,30+(int)(Math.random()*10));
-      setSpell(spell);
+      setWarcry(spell);
       setMana(mana);
       manaMax = mana;
     }
@@ -34,7 +34,7 @@ public class Wizard extends Adventurer {
   	        int damage = (int)(Math.random()*15)+1;
             other.applyDamage(damage);
             System.out.println(this + " unleashes his wizardly powers upon "
-             + other + " for " + damage + " damage! "+spell);
+             + other + " for " + damage + " damage! "+warcry);
             setRage(getRage() - 10);
 	    }else{
 			    System.out.println("Not enough mana! ");
@@ -54,8 +54,8 @@ public class Wizard extends Adventurer {
 	     this.mana = mana;
     }
 
-    public void setSpell(String spell){
-	     this.spell = spell;
+    public void setWarcry(String spell){
+	     this.warcry = spell;
     }
 
 
