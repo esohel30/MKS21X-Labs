@@ -10,7 +10,7 @@ public class Wizard extends Adventurer {
 	     this(name,"ALAKAZAM", 18);
     }
 
-    public Warrior(String name, String warcry, int mana){
+    public Warrior(String name, String spell, int mana){
       super(name,30+(int)(Math.random()*10));
       setSpell(spell);
       setMana(mana);
@@ -52,7 +52,7 @@ public class Wizard extends Adventurer {
 	     this.mana = mana;
     }
 
-    public void setWarcry(String spell){
+    public void setSpell(String spell){
 	     this.spell = spell;
     }
 

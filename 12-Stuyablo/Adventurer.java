@@ -47,5 +47,12 @@ public abstract class Adventurer implements Damageable{
 	     this.name = s;
     }
 
+    public void setmaxHP(int health){
+      this.HP = health;
+    }
+
+    public int getmaxHP(){
+      return HP;
+    }
 
 }
