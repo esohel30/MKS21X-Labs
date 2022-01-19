@@ -95,8 +95,8 @@ public class StuyabloGame{
 
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer playerOne = new Warrior("Imposter");
-    Adventurer playerTwo = new Warrior("Baka");
-    Adventurer playerThree = new Wizard("Hamood");
+    Adventurer playerTwo = new Warrior("Bakaaaaaa");
+    Adventurer playerThree=new Wizard ("Haamoooooooood");
 
     party.add(playerOne);
     party.add(playerTwo);
@@ -119,15 +119,16 @@ public class StuyabloGame{
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
-        if(input.equals("attack")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        if( input.equals("") || input.equals("attack")){
+          Text.go(12,4);
+          System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
+
         }
         else if(input.equals("special")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          Text.clear();
+          Text.go(12,4);
+          System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
+
         }
         whichPlayer++;
 
