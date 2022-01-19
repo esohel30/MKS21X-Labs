@@ -144,8 +144,6 @@ public class StuyabloGame{
         }
         whichPlayer++;
 
-
-
         if(whichPlayer < party.size()){
           drawText("Enter command for "+party.get(whichPlayer)+
                    ": attack/special/quit",HEIGHT/2);
@@ -158,11 +156,11 @@ public class StuyabloGame{
         //display enemy attack except on turn 0.
         if(turn > 0){
 
-    /////////////
+          drawText("Enter command for "+enemies.get(0)+ ": attack/special/quit",HEIGHT/2);
 
-
-
-
+          Text.go(12,4);
+          System.out.println(enemies.get(0).attack(party.get((int)(Math.random()*party.size()))));
+          Text.go(31,2);
 
         }
 
@@ -171,7 +169,6 @@ public class StuyabloGame{
         whichPlayer = 0;
         //display which player's turn is next and prompt for action.
         drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
-
         //end the turn.
         turn++;
 
@@ -180,6 +177,7 @@ public class StuyabloGame{
       //display current state of all Adventurers
       drawParty(party,2);
       drawParty(enemies,HEIGHT-5);
+      drawScreen();
 
       //Draw the prompt
       Text.reset();
