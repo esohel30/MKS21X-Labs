@@ -87,9 +87,9 @@ public class StuyabloGame{
     Text.clear();
     Text.go(1,1);
 
-    ArrayList<Adventurer>opponent = new ArrayList<>();
+    ArrayList<Adventurer>enemies = new ArrayList<>();
     Adventurer boss = new Warrior("Sussy bro");
-    opponent.add(boss);
+    enemies.add(boss);
     boss.setmaxHP(280);
     boss.setHP(280);
 
@@ -108,4 +108,79 @@ public class StuyabloGame{
     int turn = 0;
 
 
-    
+    String input = "";
+    Scanner in = new Scanner(System.in);
+    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+
+      //Draw the window border
+      Text.hideCursor();
+      drawScreen();
+
+      //display event based on last turn's input
+      if(partyTurn){
+        //Process user input:
+        if(input.equals("attack")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          //YOUR CODE HERE
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+        else if(input.equals("special")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          //YOUR CODE HERE
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+        whichPlayer++;
+
+
+
+        if(whichPlayer < party.size()){
+          drawText("Enter command for "+party.get(whichPlayer)+
+                   ": attack/special/quit",HEIGHT/2);
+        }else{
+          drawText("press enter to see monster's turn",HEIGHT/2);
+          partyTurn = false;
+        }
+      }else{
+        //this block ignores user input!
+        //display enemy attack except on turn 0.
+        if(turn > 0){
+          //Enemy action choices go here!
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          //YOUR CODE HERE
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        }
+
+        //after enemy goes, change back to player's turn.
+        partyTurn=true;
+        whichPlayer = 0;
+        //display which player's turn is next and prompt for action.
+        drawText("Enter command for "+party.get(whichPlayer)+": attack/special/quit",HEIGHT/2);
+
+        //end the turn.
+        turn++;
+
+      }
+
+      //display current state of all Adventurers
+      drawParty(party,2);
+      drawParty(enemies,HEIGHT-5);
+
+      //Draw the prompt
+      Text.reset();
+      Text.go(HEIGHT+1,1);
+      Text.showCursor();
+      System.out.print(">");
+      //Read user input
+      input = in.nextLine();
+    }
+
+    //After quit reset things:
+    Text.reset();
+    Text.showCursor();
+    Text.go(32,1);
+  }
+
+
+
+
+}
