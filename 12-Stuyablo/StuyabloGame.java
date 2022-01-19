@@ -119,15 +119,27 @@ public class StuyabloGame{
       //display event based on last turn's input
       if(partyTurn){
         //Process user input:
+
         if( input.equals("") || input.equals("attack")){
+          Text.clear();
+
           Text.go(12,4);
           System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
+          Text.go(31,2);
+
+         //display which player's turn is next and prompt for action.
+
 
         }
         else if(input.equals("special")){
           Text.clear();
+
           Text.go(12,4);
           System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
+          Text.go(31,2);
+
+         //display which player's turn is next and prompt for action.
+
 
         }
         whichPlayer++;
@@ -145,10 +157,13 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
-          //Enemy action choices go here!
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+    /////////////
+
+
+
+
+
         }
 
         //after enemy goes, change back to player's turn.
