@@ -1,25 +1,26 @@
 import java.util.*;
 public class StuyabloGame{
+
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
-  private static final int BORDER_COLOR = Text.BLACK;
-  private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
     run();
   }
 
   public static void drawParty(ArrayList<Adventurer> crew,int startRow){
+    // loops through the array list of crew mates( amoung us refrence )
     for(int a = 0; a < crew.size(); a++){
 
       int current = crew.get(a).getHP();
       int original = crew.get(a).getmaxHP();
       int healthColor = 100;
 
-      if(current >= (original/4) * 3){
-        healthColor = Text.GREEN;
-      } else if(current <= original/4){
+      if(current <= original/4){
         healthColor = Text.RED;
+      } else if(current >= (original/4) * 3){
+        healthColor = Text.GREEN;
+
       } else {
         healthColor = Text.WHITE;
       }
@@ -30,17 +31,16 @@ public class StuyabloGame{
       Text.go(startRow+2, 25*a +3);
       System.out.println(crew.get(a).getSpecialName() + ": " + crew.get(a).getSpecial() + "/" + crew.get(a).getSpecialMax());
 
-      Text.go(startRow+4, 25*a +3);
+      Text.go(startRow+3, 25*a +3);
 
-      System.out.println(Text.colorize("HP:", Text.WHITE) + Text.colorize(current + "/" + crew.get(a).getmaxHP(), healthColor));
+      System.out.println("HP:"+ Text.colorize(current + "/" + crew.get(a).getmaxHP(), healthColor));
 
     }
   }
 
-  //Display a line of text starting at column 2 of the specified row.
   public static void drawText(String s,int startRow){
     Text.go(startRow, 4);
-    System.out.println(Text.colorize(s, Text.BOLD, Text.WHITE));
+    System.out.println(s);
   }
 
 
@@ -66,8 +66,6 @@ public class StuyabloGame{
       System.out.println(Text.colorize("*", Text.BLUE+Text.BACKGROUND));
     }
 
-
-
     //for drawing the vertical lines; they are shorter than the 30 sidelength however by the value of one
     // ask mr k if that is okay
 
@@ -81,3 +79,16 @@ public class StuyabloGame{
       System.out.println(Text.colorize("*", Text.MAGENTA+Text.BACKGROUND));
     }
   }
+
+
+  public static void run(){
+
+    Text.hideCursor();
+    Text.clear();
+    Text.go(1,1);
+
+    ArrayList<Adventurer>enemies = new ArrayList<>();
+    Adventurer enemy = new Warrior("Sussy bro");
+    enemies.add(enemy);
+    enemy.setHP(150);
+    enemy.setmaxHP(150);
