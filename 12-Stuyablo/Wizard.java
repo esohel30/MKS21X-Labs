@@ -24,7 +24,7 @@ public class Wizard extends Adventurer {
     	  int damage = (int)(Math.random()*7)+1;
   	    other.applyDamage(damage);
   	    setMana(getMana() + 1);
-  	    System.out.println(this +
+  	    return (this +
             " hit " + other + " for " +
             damage + " damage!");
     }
@@ -33,12 +33,10 @@ public class Wizard extends Adventurer {
 	     if(getMana() >= 3){
   	        int damage = (int)(Math.random()*15)+1;
             other.applyDamage(damage);
-            System.out.println(this + " unleashes his wizardly powers upon "
+            return (this + " unleashes his wizardly powers upon "
              + other + " for " + damage + " damage! "+warcry);
-            setMana(getMana() - 10);
 	    }else{
-			    System.out.println("Not enough mana! ");
-          attack(other);
+          return attack(other);
 	    }
     }
 

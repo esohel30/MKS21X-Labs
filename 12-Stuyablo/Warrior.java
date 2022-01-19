@@ -24,7 +24,7 @@ public class Warrior extends Adventurer {
     	  int damage = (int)(Math.random()*10)+1;
   	    other.applyDamage(damage);
   	    setRage(getRage() + 1);
-  	    System.out.println(this +
+  	    return (this +
             " attacked " + other + " for " +
             damage + " damage!");
     }
@@ -33,12 +33,10 @@ public class Warrior extends Adventurer {
 	     if(getRage() >= 10){
   	        int damage = (int)(Math.random()*20)+1;
             other.applyDamage(damage);
-            System.out.println(this + " unleashes his fury upon "
+            return (this + " unleashes his fury upon "
              + other + " for " + damage + " damage! "+warcry);
-            setRage(getRage() - 10);
 	    }else{
-			    System.out.println("AWAWA Not enough rage! ");
-          attack(other);
+          return attack(other);
 	    }
     }
 
