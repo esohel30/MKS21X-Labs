@@ -90,12 +90,9 @@ public class StuyabloGame{
     ArrayList<Adventurer>opponent = new ArrayList<>();
     Adventurer boss = new Warrior("Sussy bro");
     opponent.add(boss);
-
     boss.setmaxHP(280);
     boss.setHP(280);
 
-    //Adventurers you control:
-    //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer playerOne = new Warrior("Imposter");
     Adventurer playerTwo = new Warrior("Baka");
@@ -106,5 +103,9 @@ public class StuyabloGame{
     party.add(playerThree);
 
 
+    boolean partyTurn = false;
+    int whichPlayer = 0;
+    int turn = 0;
 
-}
+
+    
