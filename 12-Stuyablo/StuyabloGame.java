@@ -87,8 +87,24 @@ public class StuyabloGame{
     Text.clear();
     Text.go(1,1);
 
-    ArrayList<Adventurer>enemies = new ArrayList<>();
-    Adventurer enemy = new Warrior("Sussy bro");
-    enemies.add(enemy);
-    enemy.setHP(150);
-    enemy.setmaxHP(150);
+    ArrayList<Adventurer>opponent = new ArrayList<>();
+    Adventurer boss = new Warrior("Sussy bro");
+    opponent.add(boss);
+
+    boss.setmaxHP(280);
+    boss.setHP(280);
+
+    //Adventurers you control:
+    //Make an ArrayList of Adventurers and add 3 Adventurers to it.
+    ArrayList<Adventurer> party = new ArrayList<>();
+    Adventurer playerOne = new Warrior("Imposter");
+    Adventurer playerTwo = new Warrior("Baka");
+    Adventurer playerThree = new Wizard("Hamood");
+
+    party.add(playerOne);
+    party.add(playerTwo);
+    party.add(playerThree);
+
+
+
+}
